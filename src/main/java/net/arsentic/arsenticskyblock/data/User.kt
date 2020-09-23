@@ -16,7 +16,7 @@ class User(val plugin: ArsenticSkyblock, val offlinePlayer: OfflinePlayer) {
     var islandChat = false
     var flying = false
 
-    @Transient
+
     var teleportingHome = false
     var lastCreate: Date? = null
     val island: Island?

@@ -1,13 +1,13 @@
 package net.arsentic.arsenticskyblock.commands
 
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import net.arsentic.arsenticskyblock.data.User
 import org.apache.commons.lang.math.NumberUtils
 import org.bukkit.Bukkit
 import org.bukkit.OfflinePlayer
 import org.bukkit.command.CommandSender
 
-class GiveCrystalsCommand :
-    Command(listOf("givecrystals"), "Give a player Crystals", "iridiumskyblock.givecrystals", false) {
+class GiveCrystalsCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("givecrystals"), "Give a player Crystals", "iridiumskyblock.givecrystals", false) {
     override fun execute(sender: CommandSender, args: Array<String>) {
         if (args.size != 3) {
             sender.sendMessage(

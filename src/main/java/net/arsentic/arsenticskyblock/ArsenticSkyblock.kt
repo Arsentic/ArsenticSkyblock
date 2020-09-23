@@ -9,6 +9,7 @@ import net.arsentic.arsenticskyblock.manager.HookManager
 import net.arsentic.arsenticskyblock.manager.IslandManager
 import net.arsentic.arsenticskyblock.manager.WorldManager
 
+// Gonna be honest with you here alex, The code is a lot better than it was
 class ArsenticSkyblock : ArsenticPlugin() {
     var protocolManager: ProtocolManager? = null
 

@@ -20,6 +20,8 @@ class IslandManager(plugin: ArsenticSkyblock) : Manager(plugin) {
     val islands = mutableMapOf<Int, Island?>()
     val users = mutableMapOf<String, User>()
     val islandCache = mutableMapOf<MutableList<Int>, MutableSet<Int>>()
+    val normalWorld: World? = Bukkit.getWorld("islands")
+    val netherWorld: World? = Bukkit.getWorld("islands_nether")
 
     private var nextId = 1
 
@@ -68,9 +70,6 @@ class IslandManager(plugin: ArsenticSkyblock) : Manager(plugin) {
     fun getIslandFromId(id: Int): Island? {
         return islands[id]
     }
-
-    val normalWorld: World? = Bukkit.getWorld("islands")
-    val netherWorld: World? = Bukkit.getWorld("islands_nether")
 
     private fun nextLoc(): Location {
         return Location(normalWorld, 0.0, 0.0, 0.0)

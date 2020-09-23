@@ -1,11 +1,11 @@
 package net.arsentic.arsenticskyblock.commands
 
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import net.arsentic.arsenticskyblock.data.User
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
-class WorldBorderCommand :
-    Command(listOf("border", "worldborder", "color", "colour"), "Opens the WorldBorder GUI", "", true) {
+class WorldBorderCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("border", "worldborder", "color", "colour"), "Opens the WorldBorder GUI", "", true) {
     override fun execute(sender: CommandSender, args: Array<String>) {
         val p = sender as Player
         val user = User.getUser(p)

@@ -8,7 +8,7 @@ import org.bukkit.Bukkit
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
-class AdminCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("admin"), "Control a players Island", "iridiumskyblock.admin", true) {
+class AdminCommand(plugin: ArsenticSkyblock) : Command(plugin, true, false, "Control a player's Island", "iridiumskyblock.admin", listOf("AdminCommand")) {
     override fun execute(sender: CommandSender, args: Array<String>) {
         val player = sender as Player
 

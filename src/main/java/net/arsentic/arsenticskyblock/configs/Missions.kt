@@ -77,6 +77,7 @@ class Missions(plugin: ArsenticSkyblock) : Config(plugin) {
         }, Item(Material.COBBLESTONE, 16, 1, "&b&lBuilder Level {level}", listOf("&7Complete island missions to gain crystals", "&7that can be spent on Boosters and Upgrades.", "", "&b&lInformation:", "&b&l * &7Objective: &bPlace {amount} Blocks", "&b&l * &7Current Status: &b{status}", "&b&l * &7Reward: &b{crystalsReward} Island Crystals and \${vaultReward}", "", "&b&l[!] &bComplete this mission for rewards.")))
     )
 
-    class Mission(var name: String, var levels: MutableMap<Int, MissionData>, var item: Item)
-    class MissionData(var crystalReward: Int, var vaultReward: Int, var amount: Int, var type: MissionType, var conditions: List<String>)
+    data class Mission(var name: String, var levels: MutableMap<Int, MissionData>, var item: Item)
+
+    data class MissionData(var crystalReward: Int, var vaultReward: Int, var amount: Int, var type: MissionType, var conditions: List<String>)
 }

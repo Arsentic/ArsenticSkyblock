@@ -1,13 +1,13 @@
 package net.arsentic.arsenticskyblock.commands
 
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import net.arsentic.arsenticskyblock.data.User
 import org.apache.commons.lang.StringUtils
 import org.bukkit.Bukkit
 import org.bukkit.OfflinePlayer
 import org.bukkit.command.CommandSender
 
-class RemoveCrystalsCommand :
-    Command(listOf("removecrystals"), "remove a player's Crystals", "iridiumskyblock.removecrystals", false) {
+class RemoveCrystalsCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("removecrystals"), "remove a player's Crystals", "iridiumskyblock.removecrystals", false) {
     override fun execute(sender: CommandSender, args: Array<String>) {
         if (args.size != 3) {
             sender.sendMessage(

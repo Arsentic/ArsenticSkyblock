@@ -1,17 +1,17 @@
 package net.arsentic.arsenticskyblock.commands
 
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import org.bukkit.Bukkit
 import org.bukkit.command.CommandSender
 import java.util.*
 
-class RecalculateCommand :
-    Command(listOf("recalc", "recalculate"), "Recalculate all island values", "recalculate", false) {
+class RecalculateCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("recalc", "recalculate"), "Recalculate all island values", "recalculate", false) {
     private var id = 0
     override fun execute(sender: CommandSender, args: Array<String>) {
         if (id != 0) {
             sender.sendMessage(
                 _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().calculationAlreadyInProcess.replace(
+                    ArsenticSkyblock.getMessages().calculationAlreadyInProcess.replace(
                         "%prefix%",
                         _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                     )

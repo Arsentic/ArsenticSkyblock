@@ -1,13 +1,13 @@
 package net.arsentic.arsenticskyblock.commands
 
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import net.arsentic.arsenticskyblock.data.User
 import org.apache.commons.lang.StringUtils
 import org.bukkit.Bukkit
 import org.bukkit.OfflinePlayer
 import org.bukkit.command.CommandSender
 
-class GiveBoosterCommand :
-    Command(listOf("givebooster"), "Give an Island a Booster", "iridiumskyblock.givebooster", false) {
+class GiveBoosterCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("givebooster"), "Give an Island a Booster", "iridiumskyblock.givebooster", false) {
     override fun execute(sender: CommandSender, args: Array<String>) {
         if (args.size != 4 && args.size != 3) {
             sender.sendMessage(

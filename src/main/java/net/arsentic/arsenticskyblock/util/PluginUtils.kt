@@ -16,4 +16,24 @@ object PluginUtils {
         }
     }
 
+    @JvmStatic
+    fun isNumber(string: String): Boolean {
+        return try {
+            string.toInt()
+            true
+        } catch (ex: NumberFormatException) {
+            false
+        }
+    }
+
+    @JvmStatic
+    fun isDouble(string: String): Boolean {
+        return try {
+            string.toDouble()
+            true
+        } catch (ex: NumberFormatException) {
+            false
+        }
+    }
+
 }

@@ -1,12 +1,12 @@
 package net.arsentic.arsenticskyblock.commands
 
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import net.arsentic.arsenticskyblock.data.User
 import org.bukkit.Bukkit
 import org.bukkit.OfflinePlayer
 import org.bukkit.command.CommandSender
 
-class RemoveValueCommand :
-    Command(listOf("removevalue"), "Take island value from an island", "iridiumskyblock.removevalue", false) {
+class RemoveValueCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("removevalue"), "Take island value from an island", "iridiumskyblock.removevalue", false) {
     override fun execute(sender: CommandSender, args: Array<String>) {
         if (args.size != 3) {
             sender.sendMessage(
