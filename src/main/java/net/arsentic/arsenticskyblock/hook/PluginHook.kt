@@ -6,7 +6,7 @@ import org.bukkit.plugin.Plugin
 abstract class PluginHook(val plugin: IridiumSkyblock, val hookedPlugin: Plugin?) {
 
     fun registerHook() {
-        if (plugin != null && plugin.isEnabled) {
+        if (hookedPlugin != null && hookedPlugin.isEnabled) {
             this.addMethods()
         }
     }

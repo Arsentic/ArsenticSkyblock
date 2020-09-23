@@ -35,7 +35,7 @@ class IslandManager(plugin: IridiumSkyblock) : Manager(plugin) {
     }
 
     fun createIsland(player: Player) {
-        val user = User.Companion.getUser(player)
+        val user = User(plugin, Bukkit.getOfflinePlayer(player.uniqueId))
         if (user.lastCreate != null && Date().before(user.lastCreate) && getConfiguration().createCooldown && !user.bypassing) {
             //The user cannot create an island
             val time = (user.lastCreate!!.time - System.currentTimeMillis()) / 1000
