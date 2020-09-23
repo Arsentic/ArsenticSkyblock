@@ -1,13 +1,14 @@
 package net.arsentic.arsenticskyblock.commands
 
 import net.arsentic.arsenticskyblock.ArsenticSkyblock
+import net.arsentic.arsenticskyblock.data.User
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
 class MissionsCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("missions"), "Opens the missions GUI", "", true) {
     override fun execute(sender: CommandSender, args: Array<String>) {
         val p = sender as Player
-        val user = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(p)
+        val user = User.getUser(p)
         if (user.island != null) {
             p.openInventory(user.island.getMissionsGUI().getInventory())
         } else {

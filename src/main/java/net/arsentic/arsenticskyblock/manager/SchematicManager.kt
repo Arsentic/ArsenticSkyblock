@@ -4,11 +4,17 @@ import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormats
 import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import net.arsentic.arsenticskyblock.island.IslandSchematic
 import net.arsentic.arsenticskyblock.library.Manager
+import net.arsentic.arsenticskyblock.util.PluginUtils.parseEnum
 import org.bukkit.Material
 import org.bukkit.configuration.file.FileConfiguration
 import org.bukkit.configuration.file.YamlConfiguration
 import java.io.File
 
+/**
+ * @author Esophose
+ *
+ * I can't write this code myself ;)
+ */
 class SchematicManager(plugin: ArsenticSkyblock) : Manager(plugin) {
 
     private val _schematics: MutableMap<String, IslandSchematic> = mutableMapOf()
@@ -17,7 +23,6 @@ class SchematicManager(plugin: ArsenticSkyblock) : Manager(plugin) {
         get() = this._schematics.toMap()
 
     override fun reload() {
-        F
         val schematicFolder = File(this.plugin.dataFolder, "schematics")
         val schematicsFile = File(this.plugin.dataFolder, "schematics.yml")
         val exists = schematicsFile.exists()

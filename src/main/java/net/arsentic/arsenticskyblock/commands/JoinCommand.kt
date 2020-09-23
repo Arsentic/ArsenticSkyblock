@@ -1,6 +1,7 @@
 package net.arsentic.arsenticskyblock.commands
 
 import net.arsentic.arsenticskyblock.ArsenticSkyblock
+import net.arsentic.arsenticskyblock.data.User
 import org.bukkit.Bukkit
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
@@ -12,9 +13,9 @@ class JoinCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("join"), "J
             return
         }
         val p = sender as Player
-        val user = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(p)
+        val user = User.getUser(p)
         val player = Bukkit.getOfflinePlayer(args[1])
-        val u = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(player)
+        val u = User.getUser(player)
         if (u.island != null) {
             if (user.island == null) {
                 val island: Island = u.island

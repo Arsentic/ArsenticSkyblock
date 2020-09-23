@@ -1,6 +1,7 @@
 package net.arsentic.arsenticskyblock.commands
 
 import net.arsentic.arsenticskyblock.ArsenticSkyblock
+import net.arsentic.arsenticskyblock.data.User
 import org.bukkit.Bukkit
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
@@ -8,15 +9,15 @@ import org.bukkit.entity.Player
 class WarpsCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("warps"), "opens the Warp GUI", "", true) {
     override fun execute(sender: CommandSender, args: Array<String>) {
         val p = sender as Player
-        val user = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(p)
+        val user = User.getUser(p)
         val island: Island?
         island = if (args.size == 2) {
-            _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(Bukkit.getOfflinePlayer(args[1])).island
+            User.getUser(Bukkit.getOfflinePlayer(args[1])).island
         } else {
             user.island
         }
         if (island != null) {
-            if (island.getPermissions(if (user.islandID == island.getId()) user.role else _root_ide_package_.net.arsentic.arsenticskyblock.Role.Visitor).useWarps || user.bypassing) {
+            if (island.getPermissions(if (user.islandID == island.getId()) user.role else Role.Visitor).useWarps || user.bypassing) {
                 p.openInventory(island.getWarpGUI().getInventory())
             } else {
                 sender.sendMessage(

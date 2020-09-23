@@ -1,7 +1,7 @@
 package net.arsentic.arsenticskyblock.listeners
 
 import net.arsentic.arsenticskyblock.ArsenticSkyblock
-import net.arsentic.arsenticskyblock.User
+import net.arsentic.arsenticskyblock.data.User
 import net.arsentic.arsenticskyblock.manager.IslandManager
 import org.bukkit.Bukkit
 import org.bukkit.event.EventHandler

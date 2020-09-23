@@ -1,6 +1,7 @@
 package net.arsentic.arsenticskyblock.commands
 
 import net.arsentic.arsenticskyblock.ArsenticSkyblock
+import net.arsentic.arsenticskyblock.data.User
 import net.arsentic.arsenticskyblock.island.Island
 import org.apache.commons.lang.StringUtils
 import org.bukkit.Bukkit
@@ -57,7 +58,7 @@ class AdminCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("admin"), 
 
     private fun runCommand(args: Array<String>, p: Player) {
         val player = Bukkit.getOfflinePlayer(args[1])
-        val u = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(player)
+        val u = User.getUser(player)
         if (u.island != null) {
             p.openInventory(u.island.getIslandAdminGUI().getInventory())
         } else {

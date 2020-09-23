@@ -1,6 +1,7 @@
 package net.arsentic.arsenticskyblock.commands
 
 import net.arsentic.arsenticskyblock.ArsenticSkyblock
+import net.arsentic.arsenticskyblock.data.User
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
@@ -8,7 +9,7 @@ class SetWarpCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("setwarp
     override fun execute(sender: CommandSender, args: Array<String>) {
         val p = sender as Player
         if (args.size == 2 || args.size == 3) {
-            val user = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(p)
+            val user = User.getUser(p)
             if (user.island != null) {
                 val password = if (args.size == 3) args[2] else ""
                 if (_root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.isSafe(p.location, user.island)) {

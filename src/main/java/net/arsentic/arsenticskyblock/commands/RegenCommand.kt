@@ -1,6 +1,7 @@
 package net.arsentic.arsenticskyblock.commands
 
 import net.arsentic.arsenticskyblock.ArsenticSkyblock
+import net.arsentic.arsenticskyblock.data.User
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 import java.util.concurrent.TimeUnit
@@ -8,9 +9,9 @@ import java.util.concurrent.TimeUnit
 class RegenCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("regen", "reset"), "Regenerate your island", "", true) {
     override fun execute(sender: CommandSender, args: Array<String>) {
         val p = sender as Player
-        val user = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(p)
+        val user = User.getUser(p)
         if (user.island != null) {
-            if (user.role == _root_ide_package_.net.arsentic.arsenticskyblock.Role.Owner) {
+            if (user.role == Role.Owner) {
                 if (user.bypassing || user.island.getPermissions(user.role).regen) {
                     val time: Long = user.island.canGenerate() / 1000
                     if (time == 0L || user.bypassing) {

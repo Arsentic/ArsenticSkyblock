@@ -1,6 +1,7 @@
 package net.arsentic.arsenticskyblock.commands
 
 import net.arsentic.arsenticskyblock.ArsenticSkyblock
+import net.arsentic.arsenticskyblock.data.User
 import net.arsentic.arsenticskyblock.island.Island
 import org.bukkit.Bukkit
 import org.bukkit.OfflinePlayer
@@ -9,14 +10,14 @@ import org.bukkit.command.CommandSender
 class AddValueCommand(plugin: ArsenticSkyblock) : Command(plugin, true, false, "Give an island extra value", "iridiumskyblock.addvalue", listOf("addvalue")) {
     override fun execute(sender: CommandSender, args: Array<String>) {
         if (args.size != 3) {
-            sender.sendMessage(_root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix).toString() + "/is addvalue <player> <amount>")
+            sender.sendMessage(_root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(ArsenticSkyblock.getConfiguration().prefix).toString() + "/is addvalue <player> <amount>")
             return
         }
 
         if (Bukkit.getPlayer(args[1]) != null) {
             val player: OfflinePlayer? = Bukkit.getPlayer(args[1])
             if (player != null) {
-                val island: Island? = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(player).island
+                val island: Island? = User.getUser(player).island
                 if (island != null) {
                     try {
                         island.addExtraValue(args[2].toDouble())
@@ -29,7 +30,7 @@ class AddValueCommand(plugin: ArsenticSkyblock) : Command(plugin, true, false, "
                         _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
                             _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().playerNoIsland.replace(
                                 "%prefix%",
-                                _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
+                                ArsenticSkyblock.getConfiguration().prefix
                             )
                         )
                     )
@@ -39,7 +40,7 @@ class AddValueCommand(plugin: ArsenticSkyblock) : Command(plugin, true, false, "
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
                         _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().playerOffline.replace(
                             "%prefix%",
-                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
+                            ArsenticSkyblock.getConfiguration().prefix
                         )
                     )
                 )

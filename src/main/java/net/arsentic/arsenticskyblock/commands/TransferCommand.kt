@@ -1,6 +1,7 @@
 package net.arsentic.arsenticskyblock.commands
 
 import net.arsentic.arsenticskyblock.ArsenticSkyblock
+import net.arsentic.arsenticskyblock.data.User
 import org.bukkit.Bukkit
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
@@ -14,12 +15,12 @@ class TransferCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("transf
             return
         }
         val p = sender as Player
-        val user = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(p)
+        val user = User.getUser(p)
         if (user.island != null) {
             val island: Island = user.island
             if (island.getOwner().equals(p.uniqueId.toString())) {
                 val player = Bukkit.getOfflinePlayer(args[1])
-                if (_root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(player).island === island) {
+                if (User.getUser(player).island === island) {
                     p.openInventory(
                         _root_ide_package_.net.arsentic.arsenticskyblock.gui.ConfirmationGUI(
                             user.island,
@@ -70,7 +71,7 @@ class TransferCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("transf
         val p = sender as Player
         if (island != null) {
             val player = Bukkit.getOfflinePlayer(args[1])
-            if (_root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(player).island === island) {
+            if (User.getUser(player).island === island) {
                 p.openInventory(
                     _root_ide_package_.net.arsentic.arsenticskyblock.gui.ConfirmationGUI(
                         island,

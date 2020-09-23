@@ -1,6 +1,7 @@
 package net.arsentic.arsenticskyblock.commands
 
 import net.arsentic.arsenticskyblock.ArsenticSkyblock
+import net.arsentic.arsenticskyblock.data.User
 import org.bukkit.Bukkit
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
@@ -8,11 +9,11 @@ import org.bukkit.entity.Player
 class MembersCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("members", "users", "list"), "View your island members", "", true) {
     override fun execute(sender: CommandSender, args: Array<String>) {
         val p = sender as Player
-        val user = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(p)
+        val user = User.getUser(p)
         val island: Island?
         island = if (args.size == 2) {
             val player = Bukkit.getOfflinePlayer(args[1])
-            _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(player).island
+            User.getUser(player).island
         } else {
             user.island
         }

@@ -1,6 +1,7 @@
 package net.arsentic.arsenticskyblock.commands
 
 import net.arsentic.arsenticskyblock.ArsenticSkyblock
+import net.arsentic.arsenticskyblock.data.User
 import org.bukkit.Bukkit
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
@@ -13,11 +14,11 @@ class BanCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("ban"), "Ban
             return
         }
         val p = sender as Player
-        val user = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(p)
+        val user = User.getUser(p)
         if (user.island != null) {
             val player = Bukkit.getOfflinePlayer(args[1])
-            if (!user.island.equals(_root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(player).island)) {
-                user.island.addBan(_root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(player))
+            if (!user.island.equals(User.getUser(player).island)) {
+                user.island.addBan(User.getUser(player))
                 sender.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
                         _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().playerBanned.replace(
@@ -62,8 +63,8 @@ class BanCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("ban"), "Ban
         }
         if (island != null) {
             val player = Bukkit.getOfflinePlayer(args[3])
-            if (!island.equals(_root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(player).island)) {
-                island.addBan(_root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(player))
+            if (!island.equals(User.getUser(player).island)) {
+                island.addBan(User.getUser(player))
                 sender.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
                         _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().playerBanned.replace(

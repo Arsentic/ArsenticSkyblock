@@ -1,8 +1,7 @@
 package net.arsentic.arsenticskyblock.gui
 
-import net.arsentic.arsenticskyblock.Permissions
-import net.arsentic.arsenticskyblock.Role
-import net.arsentic.arsenticskyblock.User
+import net.arsentic.arsenticskyblock.data.Permissions
+import net.arsentic.arsenticskyblock.data.User
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener

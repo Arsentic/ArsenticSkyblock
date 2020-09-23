@@ -2,7 +2,7 @@ package net.arsentic.arsenticskyblock.listeners
 
 import com.earth2me.essentials.Essentials
 import com.earth2me.essentials.spawn.EssentialsSpawn
-import net.arsentic.arsenticskyblock.User
+import net.arsentic.arsenticskyblock.data.User
 import net.arsentic.arsenticskyblock.configs.Options
 import net.arsentic.arsenticskyblock.manager.IslandManager
 import org.bukkit.Bukkit

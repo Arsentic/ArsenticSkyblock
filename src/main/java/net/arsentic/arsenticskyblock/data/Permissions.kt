@@ -1,4 +1,4 @@
-package net.arsentic.arsenticskyblock
+package net.arsentic.arsenticskyblock.data
 
 data class Permissions(
     val breakBlocks: Boolean,

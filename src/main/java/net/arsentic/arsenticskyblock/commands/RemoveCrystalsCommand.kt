@@ -1,5 +1,6 @@
 package net.arsentic.arsenticskyblock.commands
 
+import net.arsentic.arsenticskyblock.data.User
 import org.apache.commons.lang.StringUtils
 import org.bukkit.Bukkit
 import org.bukkit.OfflinePlayer
@@ -19,7 +20,7 @@ class RemoveCrystalsCommand :
         if (Bukkit.getPlayer(args[1]) != null) {
             val player: OfflinePlayer? = Bukkit.getPlayer(args[1])
             if (player != null) {
-                val island: Island? = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(player).island
+                val island: Island? = User.getUser(player).island
                 if (island != null) {
                     if (StringUtils.isNumeric(args[2])) {
                         val amount = args[2].toInt()

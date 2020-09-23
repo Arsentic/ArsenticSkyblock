@@ -1,6 +1,6 @@
 package net.arsentic.arsenticskyblock.listeners
 
-import net.arsentic.arsenticskyblock.User
+import net.arsentic.arsenticskyblock.data.User
 import net.arsentic.arsenticskyblock.manager.IslandManager
 import net.arsentic.arsenticskyblock.mission.MissionType
 import org.bukkit.Bukkit

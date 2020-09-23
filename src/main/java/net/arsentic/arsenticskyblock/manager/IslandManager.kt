@@ -1,8 +1,7 @@
 package net.arsentic.arsenticskyblock.manager
 
 import net.arsentic.arsenticskyblock.ArsenticSkyblock
-import net.arsentic.arsenticskyblock.Role
-import net.arsentic.arsenticskyblock.User
+import net.arsentic.arsenticskyblock.data.User
 import net.arsentic.arsenticskyblock.configs.Messages
 import net.arsentic.arsenticskyblock.configs.Options
 import net.arsentic.arsenticskyblock.configs.Upgrades
@@ -11,13 +10,14 @@ import net.arsentic.arsenticskyblock.library.Manager
 import net.arsentic.core.library.HexUtils.colorify
 import org.bukkit.Bukkit
 import org.bukkit.Location
+import org.bukkit.OfflinePlayer
 import org.bukkit.World
 import org.bukkit.entity.Player
 import java.util.*
 
 class IslandManager(plugin: ArsenticSkyblock) : Manager(plugin) {
 
-    val islands = mutableMapOf<Int, Island>()
+    val islands = mutableMapOf<Int, Island?>()
     val users = mutableMapOf<String, User>()
     val islandCache = mutableMapOf<MutableList<Int>, MutableSet<Int>>()
 
@@ -62,7 +62,7 @@ class IslandManager(plugin: ArsenticSkyblock) : Manager(plugin) {
         islands[nextId] = island
 
         user.islandID = nextId
-        user.role = Role.Owner
+        user.role = User.Role.Owner
     }
 
     fun getIslandFromId(id: Int): Island? {
@@ -72,7 +72,18 @@ class IslandManager(plugin: ArsenticSkyblock) : Manager(plugin) {
     val normalWorld: World? = Bukkit.getWorld("islands")
     val netherWorld: World? = Bukkit.getWorld("islands_nether")
 
-    fun nextLoc(): Location {
+    private fun nextLoc(): Location {
         return Location(normalWorld, 0.0, 0.0, 0.0)
+    }
+
+    fun getUser(player: String): User? {
+        return users[player]
+    }
+
+    fun getUser(player: OfflinePlayer): User? {
+        return if (users.containsKey(player.uniqueId.toString()))
+            users[player.uniqueId.toString()]
+        else
+            User(plugin as ArsenticSkyblock, player)
     }
 }

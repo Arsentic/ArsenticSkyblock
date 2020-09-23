@@ -1,6 +1,7 @@
 package net.arsentic.arsenticskyblock.commands
 
 import net.arsentic.arsenticskyblock.ArsenticSkyblock
+import net.arsentic.arsenticskyblock.data.User
 import org.bukkit.Bukkit
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
@@ -12,10 +13,10 @@ class UnBanCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("unban"), 
             return
         }
         val p = sender as Player
-        val user = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(p)
+        val user = User.getUser(p)
         if (user.island != null) {
             val player = Bukkit.getOfflinePlayer(args[1])
-            user.island.removeBan(_root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(player))
+            user.island.removeBan(User.getUser(player))
             sender.sendMessage(
                 _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
                     _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().playerUnBanned.replace("%player%", player.name)
@@ -43,7 +44,7 @@ class UnBanCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("unban"), 
         }
         if (island != null) {
             val player = Bukkit.getOfflinePlayer(args[1])
-            island.removeBan(_root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(player))
+            island.removeBan(User.getUser(player))
             sender.sendMessage(
                 _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
                     _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().playerUnBanned.replace("%player%", player.name)

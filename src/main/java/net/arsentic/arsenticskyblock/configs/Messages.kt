@@ -1,7 +1,6 @@
 package net.arsentic.arsenticskyblock.configs
 
 import net.arsentic.arsenticskyblock.ArsenticSkyblock
-import net.arsentic.arsenticskyblock.Role
 
 class Messages(plugin: ArsenticSkyblock) : Config(plugin) {
     var reloaded = "%prefix% &7Configuration reloaded."

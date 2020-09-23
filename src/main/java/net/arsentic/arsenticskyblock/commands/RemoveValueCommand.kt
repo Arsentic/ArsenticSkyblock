@@ -1,5 +1,6 @@
 package net.arsentic.arsenticskyblock.commands
 
+import net.arsentic.arsenticskyblock.data.User
 import org.bukkit.Bukkit
 import org.bukkit.OfflinePlayer
 import org.bukkit.command.CommandSender
@@ -16,7 +17,7 @@ class RemoveValueCommand :
         if (Bukkit.getPlayer(args[1]) != null) {
             val player: OfflinePlayer? = Bukkit.getPlayer(args[1])
             if (player != null) {
-                val island: Island? = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(player).island
+                val island: Island? = User.getUser(player).island
                 if (island != null) {
                     try {
                         island.removeExtraValue(args[2].toDouble())

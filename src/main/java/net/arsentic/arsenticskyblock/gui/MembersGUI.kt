@@ -1,7 +1,6 @@
 package net.arsentic.arsenticskyblock.gui
 
-import net.arsentic.arsenticskyblock.Role
-import net.arsentic.arsenticskyblock.User
+import net.arsentic.arsenticskyblock.data.User
 import net.arsentic.arsenticskyblock.api.IslandDemoteEvent
 import net.arsentic.arsenticskyblock.api.IslandPromoteEvent
 import org.bukkit.Bukkit

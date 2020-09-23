@@ -1,12 +1,13 @@
 package net.arsentic.arsenticskyblock.commands
 
+import net.arsentic.arsenticskyblock.data.User
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
 class PermissionsCommand(plugin: IridiumSkyblock) : Command(plugin, listOf("permissions"), "Edit Island Permissions", "", true) {
     override fun execute(sender: CommandSender, args: Array<String>) {
         val player = sender as Player
-        val user = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(player)
+        val user = User.getUser(player)
         val island: Island? = user.island
         if (island != null) {
             player.openInventory(island.getPermissionsGUI().getInventory())

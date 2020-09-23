@@ -1,5 +1,6 @@
 package net.arsentic.arsenticskyblock.commands
 
+import net.arsentic.arsenticskyblock.data.User
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 import org.bukkit.command.TabCompleter
@@ -110,7 +111,7 @@ class CommandManager(command: String?) : CommandExecutor, TabCompleter {
             } else {
                 if (cs is Player) {
                     val p = cs
-                    val u = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(p)
+                    val u = User.getUser(p)
                     if (u.island != null) {
                         if (u.island.getSchematic() == null) {
                             if (_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getSchematics().schematics.size() === 1) {

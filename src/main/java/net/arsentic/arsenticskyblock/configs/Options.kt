@@ -1,8 +1,7 @@
 package net.arsentic.arsenticskyblock.configs
 
 import net.arsentic.arsenticskyblock.ArsenticSkyblock
-import net.arsentic.arsenticskyblock.Permissions
-import net.arsentic.arsenticskyblock.Role
+import net.arsentic.arsenticskyblock.data.Permissions
 import net.arsentic.arsenticskyblock.mission.MissionRestart
 import org.bukkit.Material
 import org.bukkit.block.Biome

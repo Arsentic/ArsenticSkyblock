@@ -1,6 +1,7 @@
 package net.arsentic.arsenticskyblock.commands
 
 import net.arsentic.arsenticskyblock.ArsenticSkyblock
+import net.arsentic.arsenticskyblock.data.User
 import org.bukkit.Bukkit
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
@@ -12,12 +13,12 @@ class KickCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("kick"), "K
             return
         }
         val p = sender as Player
-        val user = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(p) // User kicking the player
+        val user = User.getUser(p) // User kicking the player
         val player = Bukkit.getOfflinePlayer(args[1])
-        val u = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(player) // Player we want to kick
+        val u = User.getUser(player) // Player we want to kick
         if (user.island != null) {
             if (user.island.equals(u.island)) {
-                if (u.role == _root_ide_package_.net.arsentic.arsenticskyblock.Role.Owner) {
+                if (u.role == Role.Owner) {
                     sender.sendMessage(
                         _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
                             _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().cantKickOwner.replace(
@@ -78,10 +79,10 @@ class KickCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("kick"), "K
             return
         }
         val player = Bukkit.getOfflinePlayer(args[1])
-        val u = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(player) // Player we want to kick
+        val u = User.getUser(player) // Player we want to kick
         if (island != null) {
             if (island.equals(u.island)) {
-                if (u.role == _root_ide_package_.net.arsentic.arsenticskyblock.Role.Owner) {
+                if (u.role == Role.Owner) {
                     sender.sendMessage(
                         _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
                             _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().cantKickOwner.replace(

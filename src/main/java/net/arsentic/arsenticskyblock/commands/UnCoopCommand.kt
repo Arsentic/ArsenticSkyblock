@@ -1,6 +1,7 @@
 package net.arsentic.arsenticskyblock.commands
 
 import net.arsentic.arsenticskyblock.ArsenticSkyblock
+import net.arsentic.arsenticskyblock.data.User
 import org.bukkit.Bukkit
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
@@ -14,12 +15,12 @@ class UnCoopCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("uncoop")
             return
         }
         val p = sender as Player
-        val user = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(p)
+        val user = User.getUser(p)
         if (user.island != null) {
             val player = Bukkit.getOfflinePlayer(args[1])
-            if (!user.island.equals(_root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(player).island) && _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(player).island != null) {
+            if (!user.island.equals(User.getUser(player).island) && User.getUser(player).island != null) {
                 if (user.bypassing || user.island.getPermissions(user.getRole()).coop) {
-                    user.island.removeCoop(_root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(player).island)
+                    user.island.removeCoop(User.getUser(player).island)
                 } else {
                     sender.sendMessage(
                         _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
@@ -61,8 +62,8 @@ class UnCoopCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("uncoop")
         }
         if (island != null) {
             val player = Bukkit.getOfflinePlayer(args[1])
-            if (!island.equals(_root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(player).island) && _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(player).island != null) {
-                island.removeCoop(_root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(player).island)
+            if (!island.equals(User.getUser(player).island) && User.getUser(player).island != null) {
+                island.removeCoop(User.getUser(player).island)
             } else {
                 sender.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(

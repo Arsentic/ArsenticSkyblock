@@ -1,6 +1,7 @@
 package net.arsentic.arsenticskyblock.commands
 
 import net.arsentic.arsenticskyblock.ArsenticSkyblock
+import net.arsentic.arsenticskyblock.data.User
 import net.md_5.bungee.api.chat.ClickEvent
 import net.md_5.bungee.api.chat.ComponentBuilder
 import net.md_5.bungee.api.chat.HoverEvent
@@ -17,9 +18,9 @@ class InviteCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("invite")
             return
         }
         val p = sender as Player
-        val user = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(p)
+        val user = User.getUser(p)
         val player = Bukkit.getOfflinePlayer(args[1])
-        val u = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(player)
+        val u = User.getUser(player)
         if (user.island != null) {
             if (u.island == null) {
                 if (user.bypassing || user.island.getPermissions(user.role).inviteMembers) {
@@ -66,7 +67,7 @@ class InviteCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("invite")
         }
         val p = sender as Player
         val player = Bukkit.getOfflinePlayer(args[1])
-        val u = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(player)
+        val u = User.getUser(player)
         if (island != null) {
             if (u.island == null) {
                 u.invites.add(island.getId())
