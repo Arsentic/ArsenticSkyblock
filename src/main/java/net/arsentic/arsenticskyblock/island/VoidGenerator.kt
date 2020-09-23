@@ -1,4 +1,4 @@
-package net.arsentic.arsenticskyblock
+package net.arsentic.arsenticskyblock.island
 
 import net.arsentic.core.library.NMSUtil
 import org.bukkit.World
@@ -6,7 +6,7 @@ import org.bukkit.block.Biome
 import org.bukkit.generator.ChunkGenerator
 import java.util.*
 
-class SkyblockGenerator : ChunkGenerator() {
+class VoidGenerator : ChunkGenerator() {
 
     override fun generateChunkData(world: World, random: Random, chunkX: Int, chunkZ: Int, biomeGrid: BiomeGrid): ChunkData {
         val biome = when (world.environment) {

@@ -1,5 +1,6 @@
 package net.arsentic.arsenticskyblock.library
 
+import net.arsentic.core.library.HexUtils
 import org.bukkit.Bukkit
 import org.bukkit.event.Listener
 import org.bukkit.plugin.java.JavaPlugin
@@ -18,6 +19,7 @@ abstract class ArsenticPlugin : JavaPlugin() {
 
     abstract fun enablePlugin()
     abstract fun disablePlugin()
+
     override fun onEnable() {
         saveDefaultConfig()
         enablePlugin()
