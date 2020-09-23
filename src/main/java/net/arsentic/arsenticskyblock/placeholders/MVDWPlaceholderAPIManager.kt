@@ -2,7 +2,7 @@ package net.arsentic.arsenticskyblock.placeholders
 
 import be.maximvdw.placeholderapi.PlaceholderAPI
 import be.maximvdw.placeholderapi.PlaceholderReplaceEvent
-import net.arsentic.arsenticskyblock.IridiumSkyblock
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import net.arsentic.arsenticskyblock.User
 import net.arsentic.arsenticskyblock.util.Utils
 import org.bukkit.Bukkit
@@ -67,7 +67,7 @@ class MVDWPlaceholderAPIManager {
         PlaceholderAPI.registerPlaceholder(getInstance(), "iridiumskyblock_island_upgrade_member_amount") { e: PlaceholderReplaceEvent ->
             val player = e.player ?: return@registerPlaceholder getConfiguration().placeholderDefaultValue
             val user: User = User.Companion.getUser(player)
-            if (user.island != null) IridiumSkyblock.Companion.getUpgrades()!!.memberUpgrade.upgrades.get(user.island.getMemberLevel())!!.size.toString() + "" else getConfiguration().placeholderDefaultValue
+            if (user.island != null) ArsenticSkyblock.Companion.getUpgrades()!!.memberUpgrade.upgrades.get(user.island.getMemberLevel())!!.size.toString() + "" else getConfiguration().placeholderDefaultValue
         }
         PlaceholderAPI.registerPlaceholder(getInstance(), "iridiumskyblock_island_upgrade_size_level") { e: PlaceholderReplaceEvent ->
             val player = e.player ?: return@registerPlaceholder getConfiguration().placeholderDefaultValue
@@ -77,7 +77,7 @@ class MVDWPlaceholderAPIManager {
         PlaceholderAPI.registerPlaceholder(getInstance(), "iridiumskyblock_island_upgrade_size_dimensions") { e: PlaceholderReplaceEvent ->
             val player = e.player ?: return@registerPlaceholder getConfiguration().placeholderDefaultValue
             val user: User = User.Companion.getUser(player)
-            if (user.island != null) IridiumSkyblock.Companion.getUpgrades()!!.sizeUpgrade.upgrades.get(user.island.getSizeLevel())!!.size.toString() + "" else getConfiguration().placeholderDefaultValue
+            if (user.island != null) ArsenticSkyblock.Companion.getUpgrades()!!.sizeUpgrade.upgrades.get(user.island.getSizeLevel())!!.size.toString() + "" else getConfiguration().placeholderDefaultValue
         }
         PlaceholderAPI.registerPlaceholder(getInstance(), "iridiumskyblock_island_upgrade_ore_level") { e: PlaceholderReplaceEvent ->
             val player = e.player ?: return@registerPlaceholder getConfiguration().placeholderDefaultValue

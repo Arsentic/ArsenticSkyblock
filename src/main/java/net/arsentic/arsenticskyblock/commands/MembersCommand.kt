@@ -1,11 +1,11 @@
 package net.arsentic.arsenticskyblock.commands
 
-import net.arsentic.arsenticskyblock.IridiumSkyblock
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import org.bukkit.Bukkit
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
-class MembersCommand(plugin: IridiumSkyblock): Command(plugin, listOf("members", "users", "list"), "View your island members", "", true) {
+class MembersCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("members", "users", "list"), "View your island members", "", true) {
     override fun execute(sender: CommandSender, args: Array<String>) {
         val p = sender as Player
         val user = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(p)
@@ -22,18 +22,18 @@ class MembersCommand(plugin: IridiumSkyblock): Command(plugin, listOf("members",
             if (args.size == 2) {
                 sender.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().playerNoIsland.replace(
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().playerNoIsland.replace(
                             "%prefix%",
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                         )
                     )
                 )
             } else {
                 sender.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().noIsland.replace(
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().noIsland.replace(
                             "%prefix%",
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                         )
                     )
                 )
@@ -49,18 +49,18 @@ class MembersCommand(plugin: IridiumSkyblock): Command(plugin, listOf("members",
             if (args.size == 2) {
                 sender.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().playerNoIsland.replace(
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().playerNoIsland.replace(
                             "%prefix%",
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                         )
                     )
                 )
             } else {
                 sender.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().noIsland.replace(
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().noIsland.replace(
                             "%prefix%",
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                         )
                     )
                 )

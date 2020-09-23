@@ -11,6 +11,7 @@ import java.lang.reflect.InvocationTargetException
 
 class PlayerPortalListener : Listener {
     val supports: Boolean = Material.supports(15)
+
     @EventHandler
     fun onPlayerPortal(event: PlayerPortalEvent) {
         try {

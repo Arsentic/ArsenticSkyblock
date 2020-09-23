@@ -1,11 +1,11 @@
 package net.arsentic.arsenticskyblock.hook
 
 import me.clip.placeholderapi.PlaceholderAPI
-import net.arsentic.arsenticskyblock.IridiumSkyblock
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 
-class PlaceholderAPIHook(plugin: IridiumSkyblock) : PluginHook(plugin, Bukkit.getPluginManager().getPlugin("PlaceholderAPI")) {
+class PlaceholderAPIHook(plugin: ArsenticSkyblock) : PluginHook(plugin, Bukkit.getPluginManager().getPlugin("PlaceholderAPI")) {
 
     companion object {
         private var enabled: Boolean? = null

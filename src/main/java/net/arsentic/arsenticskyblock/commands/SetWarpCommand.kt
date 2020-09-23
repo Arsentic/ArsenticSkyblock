@@ -1,10 +1,10 @@
 package net.arsentic.arsenticskyblock.commands
 
-import net.arsentic.arsenticskyblock.IridiumSkyblock
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
-class SetWarpCommand(plugin: IridiumSkyblock): Command(plugin, listOf("setwarp", "addwarp"), "Set a new island warp", "", true) {
+class SetWarpCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("setwarp", "addwarp"), "Set a new island warp", "", true) {
     override fun execute(sender: CommandSender, args: Array<String>) {
         val p = sender as Player
         if (args.size == 2 || args.size == 3) {
@@ -16,9 +16,9 @@ class SetWarpCommand(plugin: IridiumSkyblock): Command(plugin, listOf("setwarp",
                 } else {
                     p.sendMessage(
                         _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().isNotSafe.replace(
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().isNotSafe.replace(
                                 "%prefix%",
-                                _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                                _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                             )
                         )
                     )
@@ -26,16 +26,16 @@ class SetWarpCommand(plugin: IridiumSkyblock): Command(plugin, listOf("setwarp",
             } else {
                 p.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().noIsland.replace(
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().noIsland.replace(
                             "%prefix%",
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                         )
                     )
                 )
             }
         } else {
             p.sendMessage(
-                _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix).toString() + "/is setwarp <name> (password)"
+                _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix).toString() + "/is setwarp <name> (password)"
             )
         }
     }
@@ -50,9 +50,9 @@ class SetWarpCommand(plugin: IridiumSkyblock): Command(plugin, listOf("setwarp",
                 } else {
                     p.sendMessage(
                         _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().isNotSafe.replace(
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().isNotSafe.replace(
                                 "%prefix%",
-                                _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                                _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                             )
                         )
                     )
@@ -60,16 +60,16 @@ class SetWarpCommand(plugin: IridiumSkyblock): Command(plugin, listOf("setwarp",
             } else {
                 p.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().noIsland.replace(
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().noIsland.replace(
                             "%prefix%",
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                         )
                     )
                 )
             }
         } else {
             p.sendMessage(
-                _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix).toString() + "/is setwarp <name> (password)"
+                _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix).toString() + "/is setwarp <name> (password)"
             )
         }
     }

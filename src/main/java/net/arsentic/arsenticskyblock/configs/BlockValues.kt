@@ -1,8 +1,9 @@
 package net.arsentic.arsenticskyblock.configs
 
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import org.bukkit.Material
 
-class BlockValues {
+class BlockValues(plugin: ArsenticSkyblock) : Config(plugin) {
     val blockValue = mutableMapOf<Material, Double>()
         get() {
             field[Material.EMERALD_BLOCK] = 20.00

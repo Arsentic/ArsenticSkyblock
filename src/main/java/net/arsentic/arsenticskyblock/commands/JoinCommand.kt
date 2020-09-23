@@ -1,14 +1,14 @@
 package net.arsentic.arsenticskyblock.commands
 
-import net.arsentic.arsenticskyblock.IridiumSkyblock
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import org.bukkit.Bukkit
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
-class JoinCommand(plugin: IridiumSkyblock): Command(plugin, listOf("join"), "Join another players island", "", true) {
+class JoinCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("join"), "Join another players island", "", true) {
     override fun execute(sender: CommandSender, args: Array<String>) {
         if (args.size != 2) {
-            sender.sendMessage(_root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix).toString() + "/is join <player>")
+            sender.sendMessage(_root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix).toString() + "/is join <player>")
             return
         }
         val p = sender as Player
@@ -23,9 +23,9 @@ class JoinCommand(plugin: IridiumSkyblock): Command(plugin, listOf("join"), "Joi
                 } else {
                     sender.sendMessage(
                         _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().noActiveInvites.replace(
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().noActiveInvites.replace(
                                 "%prefix%",
-                                _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                                _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                             )
                         )
                     )
@@ -33,9 +33,9 @@ class JoinCommand(plugin: IridiumSkyblock): Command(plugin, listOf("join"), "Joi
             } else {
                 sender.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().playerAlreadyHaveIsland.replace(
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().playerAlreadyHaveIsland.replace(
                             "%prefix%",
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                         )
                     )
                 )
@@ -43,9 +43,9 @@ class JoinCommand(plugin: IridiumSkyblock): Command(plugin, listOf("join"), "Joi
         } else {
             sender.sendMessage(
                 _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                    _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().noIsland.replace(
+                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().noIsland.replace(
                         "%prefix%",
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                     )
                 )
             )

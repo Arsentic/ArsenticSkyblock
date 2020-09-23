@@ -1,10 +1,10 @@
 package net.arsentic.arsenticskyblock.commands
 
-import net.arsentic.arsenticskyblock.IridiumSkyblock
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
-class DeleteCommand(plugin: IridiumSkyblock): Command(plugin, listOf("delete"), "Delete you island", "", true) {
+class DeleteCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("delete"), "Delete you island", "", true) {
     override fun execute(sender: CommandSender, args: Array<String>) {
         val p = sender as Player
         val user = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(p)
@@ -14,15 +14,15 @@ class DeleteCommand(plugin: IridiumSkyblock): Command(plugin, listOf("delete"), 
                     _root_ide_package_.net.arsentic.arsenticskyblock.gui.ConfirmationGUI(
                         user.island,
                         { user.island.delete() },
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().deleteAction
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().deleteAction
                     ).inventory
                 )
             } else {
                 sender.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().mustBeIslandOwner.replace(
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().mustBeIslandOwner.replace(
                             "%prefix%",
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                         )
                     )
                 )
@@ -30,9 +30,9 @@ class DeleteCommand(plugin: IridiumSkyblock): Command(plugin, listOf("delete"), 
         } else {
             sender.sendMessage(
                 _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                    _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().noIsland.replace(
+                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().noIsland.replace(
                         "%prefix%",
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                     )
                 )
             )
@@ -46,15 +46,15 @@ class DeleteCommand(plugin: IridiumSkyblock): Command(plugin, listOf("delete"), 
                 _root_ide_package_.net.arsentic.arsenticskyblock.gui.ConfirmationGUI(
                     island,
                     island::delete,
-                    _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().deleteAction
+                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().deleteAction
                 ).inventory
             )
         } else {
             sender.sendMessage(
                 _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                    _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().noIsland.replace(
+                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().noIsland.replace(
                         "%prefix%",
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                     )
                 )
             )

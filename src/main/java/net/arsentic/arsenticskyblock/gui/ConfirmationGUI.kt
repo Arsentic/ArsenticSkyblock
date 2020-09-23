@@ -29,6 +29,7 @@ class ConfirmationGUI : GUI, Listener {
     }
 
     override fun addContent() {}
+
     @EventHandler
     override fun onInventoryClick(e: InventoryClickEvent) {
         if (e.inventory == inventory) {

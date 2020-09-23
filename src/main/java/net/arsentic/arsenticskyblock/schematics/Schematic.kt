@@ -1,7 +1,7 @@
 package net.arsentic.arsenticskyblock.schematics
 
 import com.google.gson.JsonParser
-import net.arsentic.arsenticskyblock.IridiumSkyblock
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
 import org.bukkit.Location
@@ -36,7 +36,7 @@ class Schematic : WorldEdit {
                     for (z in 0 until length) {
                         val index = y * width * length + z * width + x
                         val block = Location(location.world, x + location.x, y + location.y, z + location.z).block
-                        IridiumSkyblock.Companion.nms.setBlockFast(block, blocks[index], blockData[index])
+                        ArsenticSkyblock.Companion.nms.setBlockFast(block, blocks[index], blockData[index])
                     }
                 }
             }
@@ -46,22 +46,22 @@ class Schematic : WorldEdit {
                     if (tag !is CompoundTag) continue
                     val t = tag as CompoundTag
                     val tags = t.value
-                    val x: Int = SchematicData.Companion.getChildTag<IntTag>(tags, "x", IntTag::class.java).getValue()
-                    val y: Int = SchematicData.Companion.getChildTag<IntTag>(tags, "y", IntTag::class.java).getValue()
-                    val z: Int = SchematicData.Companion.getChildTag<IntTag>(tags, "z", IntTag::class.java).getValue()
+                    val x: Int = SchematicData.Companion.getChildTag<IntTag>(tags, "x", IntTag::class.java).value
+                    val y: Int = SchematicData.Companion.getChildTag<IntTag>(tags, "y", IntTag::class.java).value
+                    val z: Int = SchematicData.Companion.getChildTag<IntTag>(tags, "z", IntTag::class.java).value
                     val block = Location(location.world, x + location.x, y + location.y, z + location.z).block
-                    val id: String = SchematicData.Companion.getChildTag<StringTag>(tags, "id", StringTag::class.java).getValue().toLowerCase().replace("minecraft:", "")
+                    val id: String = SchematicData.Companion.getChildTag<StringTag>(tags, "id", StringTag::class.java).value.toLowerCase().replace("minecraft:", "")
                     if (id.equals("chest", ignoreCase = true)) {
-                        val items: List<Tag> = SchematicData.Companion.getChildTag<ListTag>(tags, "Items", ListTag::class.java).getValue()
+                        val items: List<Tag> = SchematicData.Companion.getChildTag<ListTag>(tags, "Items", ListTag::class.java).value
                         if (block.state is Chest) {
                             val chest = block.state as Chest
                             for (item in items) {
                                 if (item !is CompoundTag) continue
                                 val itemtag = item.value
-                                val slot: Byte = SchematicData.Companion.getChildTag<ByteTag>(itemtag, "Slot", ByteTag::class.java).getValue()
-                                val name: String = SchematicData.Companion.getChildTag<StringTag>(itemtag, "id", StringTag::class.java).getValue().toLowerCase().replace("minecraft:", "")
-                                val amount: Byte = SchematicData.Companion.getChildTag<ByteTag>(itemtag, "Count", ByteTag::class.java).getValue()
-                                val damage: Short = SchematicData.Companion.getChildTag<ShortTag>(itemtag, "Damage", ShortTag::class.java).getValue()
+                                val slot: Byte = SchematicData.Companion.getChildTag<ByteTag>(itemtag, "Slot", ByteTag::class.java).value
+                                val name: String = SchematicData.Companion.getChildTag<StringTag>(itemtag, "id", StringTag::class.java).value.toLowerCase().replace("minecraft:", "")
+                                val amount: Byte = SchematicData.Companion.getChildTag<ByteTag>(itemtag, "Count", ByteTag::class.java).value
+                                val damage: Short = SchematicData.Companion.getChildTag<ShortTag>(itemtag, "Damage", ShortTag::class.java).value
                                 val material: Material = Material.requestOldMaterial(name.toUpperCase(), damage.toByte())
                                 if (material != null) {
                                     val itemStack: ItemStack = material.parseItem(true)
@@ -76,14 +76,14 @@ class Schematic : WorldEdit {
                         if (block.state is Sign) {
                             val sign = block.state as Sign
                             val parser = JsonParser()
-                            var line1 = if (parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text1", StringTag::class.java).getValue()).getAsString().isEmpty()) "" else parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text1", StringTag::class.java).getValue()).getAsJsonObject().get("extra").getAsJsonArray().get(0).getAsJsonObject().get("text").getAsString().replace("[ISLAND_OWNER]", getUser(island.getOwner()).name)
-                            var line2 = if (parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text2", StringTag::class.java).getValue()).getAsString().isEmpty()) "" else parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text2", StringTag::class.java).getValue()).getAsJsonObject().get("extra").getAsJsonArray().get(0).getAsJsonObject().get("text").getAsString().replace("[ISLAND_OWNER]", getUser(island.getOwner()).name)
-                            var line3 = if (parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text3", StringTag::class.java).getValue()).getAsString().isEmpty()) "" else parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text3", StringTag::class.java).getValue()).getAsJsonObject().get("extra").getAsJsonArray().get(0).getAsJsonObject().get("text").getAsString().replace("[ISLAND_OWNER]", getUser(island.getOwner()).name)
-                            var line4 = if (parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text4", StringTag::class.java).getValue()).getAsString().isEmpty()) "" else parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text4", StringTag::class.java).getValue()).getAsJsonObject().get("extra").getAsJsonArray().get(0).getAsJsonObject().get("text").getAsString().replace("[ISLAND_OWNER]", getUser(island.getOwner()).name)
-                            if (!parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text1", StringTag::class.java).getValue()).getAsString().isEmpty() && parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text1", StringTag::class.java).getValue()).getAsJsonObject().get("extra").getAsJsonArray().get(0).getAsJsonObject().has("color")) line1 = ChatColor.valueOf(parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text1", StringTag::class.java).getValue()).getAsJsonObject().get("extra").getAsJsonArray().get(0).getAsJsonObject().get("color").getAsString().toUpperCase()).toString() + line1
-                            if (!parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text2", StringTag::class.java).getValue()).getAsString().isEmpty() && parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text2", StringTag::class.java).getValue()).getAsJsonObject().get("extra").getAsJsonArray().get(0).getAsJsonObject().has("color")) line2 = ChatColor.valueOf(parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text2", StringTag::class.java).getValue()).getAsJsonObject().get("extra").getAsJsonArray().get(0).getAsJsonObject().get("color").getAsString().toUpperCase()).toString() + line2
-                            if (!parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text3", StringTag::class.java).getValue()).getAsString().isEmpty() && parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text3", StringTag::class.java).getValue()).getAsJsonObject().get("extra").getAsJsonArray().get(0).getAsJsonObject().has("color")) line3 = ChatColor.valueOf(parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text3", StringTag::class.java).getValue()).getAsJsonObject().get("extra").getAsJsonArray().get(0).getAsJsonObject().get("color").getAsString().toUpperCase()).toString() + line3
-                            if (!parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text4", StringTag::class.java).getValue()).getAsString().isEmpty() && parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text4", StringTag::class.java).getValue()).getAsJsonObject().get("extra").getAsJsonArray().get(0).getAsJsonObject().has("color")) line4 = ChatColor.valueOf(parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text4", StringTag::class.java).getValue()).getAsJsonObject().get("extra").getAsJsonArray().get(0).getAsJsonObject().get("color").getAsString().toUpperCase()).toString() + line4
+                            var line1 = if (parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text1", StringTag::class.java).value).asString.isEmpty()) "" else parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text1", StringTag::class.java).value).asJsonObject.get("extra").asJsonArray.get(0).asJsonObject.get("text").asString.replace("[ISLAND_OWNER]", getUser(island.getOwner()).name)
+                            var line2 = if (parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text2", StringTag::class.java).value).asString.isEmpty()) "" else parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text2", StringTag::class.java).value).asJsonObject.get("extra").asJsonArray.get(0).asJsonObject.get("text").asString.replace("[ISLAND_OWNER]", getUser(island.getOwner()).name)
+                            var line3 = if (parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text3", StringTag::class.java).value).asString.isEmpty()) "" else parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text3", StringTag::class.java).value).asJsonObject.get("extra").asJsonArray.get(0).asJsonObject.get("text").asString.replace("[ISLAND_OWNER]", getUser(island.getOwner()).name)
+                            var line4 = if (parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text4", StringTag::class.java).value).asString.isEmpty()) "" else parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text4", StringTag::class.java).value).asJsonObject.get("extra").asJsonArray.get(0).asJsonObject.get("text").asString.replace("[ISLAND_OWNER]", getUser(island.getOwner()).name)
+                            if (!parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text1", StringTag::class.java).value).asString.isEmpty() && parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text1", StringTag::class.java).value).asJsonObject.get("extra").asJsonArray.get(0).asJsonObject.has("color")) line1 = ChatColor.valueOf(parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text1", StringTag::class.java).value).asJsonObject.get("extra").asJsonArray.get(0).asJsonObject.get("color").asString.toUpperCase()).toString() + line1
+                            if (!parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text2", StringTag::class.java).value).asString.isEmpty() && parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text2", StringTag::class.java).value).asJsonObject.get("extra").asJsonArray.get(0).asJsonObject.has("color")) line2 = ChatColor.valueOf(parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text2", StringTag::class.java).value).asJsonObject.get("extra").asJsonArray.get(0).asJsonObject.get("color").asString.toUpperCase()).toString() + line2
+                            if (!parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text3", StringTag::class.java).value).asString.isEmpty() && parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text3", StringTag::class.java).value).asJsonObject.get("extra").asJsonArray.get(0).asJsonObject.has("color")) line3 = ChatColor.valueOf(parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text3", StringTag::class.java).value).asJsonObject.get("extra").asJsonArray.get(0).asJsonObject.get("color").asString.toUpperCase()).toString() + line3
+                            if (!parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text4", StringTag::class.java).value).asString.isEmpty() && parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text4", StringTag::class.java).value).asJsonObject.get("extra").asJsonArray.get(0).asJsonObject.has("color")) line4 = ChatColor.valueOf(parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text4", StringTag::class.java).value).asJsonObject.get("extra").asJsonArray.get(0).asJsonObject.get("color").asString.toUpperCase()).toString() + line4
                             sign.setLine(0, line1)
                             sign.setLine(1, line2)
                             sign.setLine(2, line3)
@@ -103,7 +103,7 @@ class Schematic : WorldEdit {
                                 val index = y * width * length + z * width + x
                                 val block = Location(location.world, x + location.x, y + location.y, z + location.z).block
                                 for (s in schematicData.getPalette().keySet()) {
-                                    val i: Int = SchematicData.Companion.getChildTag<T>(schematicData.getPalette(), s, IntTag::class.java).getValue()
+                                    val i: Int = SchematicData.Companion.getChildTag<T>(schematicData.getPalette(), s, IntTag::class.java).value
                                     if (schematicData.getBlockdata().get(index) === i) {
                                         block.setBlockData(Bukkit.createBlockData(s), false)
                                     }
@@ -118,22 +118,22 @@ class Schematic : WorldEdit {
                                 if (tag !is CompoundTag) continue
                                 val t = tag as CompoundTag
                                 val tags = t.value
-                                val pos: IntArray = SchematicData.Companion.getChildTag<IntArrayTag>(tags, "Pos", IntArrayTag::class.java).getValue()
+                                val pos: IntArray = SchematicData.Companion.getChildTag<IntArrayTag>(tags, "Pos", IntArrayTag::class.java).value
                                 val x = pos[0]
                                 val y = pos[1]
                                 val z = pos[2]
                                 val block = Location(location.world, x + location.x, y + location.y, z + location.z).block
-                                val id: String = SchematicData.Companion.getChildTag<StringTag>(tags, "Id", StringTag::class.java).getValue().toLowerCase().replace("minecraft:", "")
+                                val id: String = SchematicData.Companion.getChildTag<StringTag>(tags, "Id", StringTag::class.java).value.toLowerCase().replace("minecraft:", "")
                                 if (id.equals("chest", ignoreCase = true)) {
-                                    val items: List<Tag> = SchematicData.Companion.getChildTag<ListTag>(tags, "Items", ListTag::class.java).getValue()
+                                    val items: List<Tag> = SchematicData.Companion.getChildTag<ListTag>(tags, "Items", ListTag::class.java).value
                                     if (block.state is Chest) {
                                         val chest = block.state as Chest
                                         for (item in items) {
                                             if (item !is CompoundTag) continue
                                             val itemtag = item.value
-                                            val slot: Byte = SchematicData.Companion.getChildTag<ByteTag>(itemtag, "Slot", ByteTag::class.java).getValue()
-                                            val name: String = SchematicData.Companion.getChildTag<StringTag>(itemtag, "id", StringTag::class.java).getValue().toLowerCase().replace("minecraft:", "")
-                                            val amount: Byte = SchematicData.Companion.getChildTag<ByteTag>(itemtag, "Count", ByteTag::class.java).getValue()
+                                            val slot: Byte = SchematicData.Companion.getChildTag<ByteTag>(itemtag, "Slot", ByteTag::class.java).value
+                                            val name: String = SchematicData.Companion.getChildTag<StringTag>(itemtag, "id", StringTag::class.java).value.toLowerCase().replace("minecraft:", "")
+                                            val amount: Byte = SchematicData.Companion.getChildTag<ByteTag>(itemtag, "Count", ByteTag::class.java).value
                                             val material: Material = Material.requestOldMaterial(name.toUpperCase(), (-1).toByte())
                                             if (material != null) {
                                                 val itemStack: ItemStack = material.parseItem(true)
@@ -148,14 +148,14 @@ class Schematic : WorldEdit {
                                     if (block.state is Sign) {
                                         val sign = block.state as Sign
                                         val parser = JsonParser()
-                                        var line1: String = parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text1", StringTag::class.java).getValue()).getAsJsonObject().get("extra").getAsJsonArray().get(0).getAsJsonObject().get("text").getAsString().replace("[ISLAND_OWNER]", getUser(island.getOwner()).name)
-                                        var line2: String = parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text2", StringTag::class.java).getValue()).getAsJsonObject().get("extra").getAsJsonArray().get(0).getAsJsonObject().get("text").getAsString().replace("[ISLAND_OWNER]", getUser(island.getOwner()).name)
-                                        var line3: String = parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text3", StringTag::class.java).getValue()).getAsJsonObject().get("extra").getAsJsonArray().get(0).getAsJsonObject().get("text").getAsString().replace("[ISLAND_OWNER]", getUser(island.getOwner()).name)
-                                        var line4: String = parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text4", StringTag::class.java).getValue()).getAsJsonObject().get("extra").getAsJsonArray().get(0).getAsJsonObject().get("text").getAsString().replace("[ISLAND_OWNER]", getUser(island.getOwner()).name)
-                                        if (parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text1", StringTag::class.java).getValue()).getAsJsonObject().get("extra").getAsJsonArray().get(0).getAsJsonObject().has("color")) line1 = ChatColor.valueOf(parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text1", StringTag::class.java).getValue()).getAsJsonObject().get("extra").getAsJsonArray().get(0).getAsJsonObject().get("color").getAsString().toUpperCase()).toString() + line1
-                                        if (parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text2", StringTag::class.java).getValue()).getAsJsonObject().get("extra").getAsJsonArray().get(0).getAsJsonObject().has("color")) line2 = ChatColor.valueOf(parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text2", StringTag::class.java).getValue()).getAsJsonObject().get("extra").getAsJsonArray().get(0).getAsJsonObject().get("color").getAsString().toUpperCase()).toString() + line2
-                                        if (parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text3", StringTag::class.java).getValue()).getAsJsonObject().get("extra").getAsJsonArray().get(0).getAsJsonObject().has("color")) line3 = ChatColor.valueOf(parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text3", StringTag::class.java).getValue()).getAsJsonObject().get("extra").getAsJsonArray().get(0).getAsJsonObject().get("color").getAsString().toUpperCase()).toString() + line3
-                                        if (parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text4", StringTag::class.java).getValue()).getAsJsonObject().get("extra").getAsJsonArray().get(0).getAsJsonObject().has("color")) line4 = ChatColor.valueOf(parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text4", StringTag::class.java).getValue()).getAsJsonObject().get("extra").getAsJsonArray().get(0).getAsJsonObject().get("color").getAsString().toUpperCase()).toString() + line4
+                                        var line1: String = parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text1", StringTag::class.java).value).asJsonObject.get("extra").asJsonArray.get(0).asJsonObject.get("text").asString.replace("[ISLAND_OWNER]", getUser(island.getOwner()).name)
+                                        var line2: String = parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text2", StringTag::class.java).value).asJsonObject.get("extra").asJsonArray.get(0).asJsonObject.get("text").asString.replace("[ISLAND_OWNER]", getUser(island.getOwner()).name)
+                                        var line3: String = parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text3", StringTag::class.java).value).asJsonObject.get("extra").asJsonArray.get(0).asJsonObject.get("text").asString.replace("[ISLAND_OWNER]", getUser(island.getOwner()).name)
+                                        var line4: String = parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text4", StringTag::class.java).value).asJsonObject.get("extra").asJsonArray.get(0).asJsonObject.get("text").asString.replace("[ISLAND_OWNER]", getUser(island.getOwner()).name)
+                                        if (parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text1", StringTag::class.java).value).asJsonObject.get("extra").asJsonArray.get(0).asJsonObject.has("color")) line1 = ChatColor.valueOf(parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text1", StringTag::class.java).value).asJsonObject.get("extra").asJsonArray.get(0).asJsonObject.get("color").asString.toUpperCase()).toString() + line1
+                                        if (parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text2", StringTag::class.java).value).asJsonObject.get("extra").asJsonArray.get(0).asJsonObject.has("color")) line2 = ChatColor.valueOf(parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text2", StringTag::class.java).value).asJsonObject.get("extra").asJsonArray.get(0).asJsonObject.get("color").asString.toUpperCase()).toString() + line2
+                                        if (parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text3", StringTag::class.java).value).asJsonObject.get("extra").asJsonArray.get(0).asJsonObject.has("color")) line3 = ChatColor.valueOf(parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text3", StringTag::class.java).value).asJsonObject.get("extra").asJsonArray.get(0).asJsonObject.get("color").asString.toUpperCase()).toString() + line3
+                                        if (parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text4", StringTag::class.java).value).asJsonObject.get("extra").asJsonArray.get(0).asJsonObject.has("color")) line4 = ChatColor.valueOf(parser.parse(SchematicData.Companion.getChildTag<StringTag>(tags, "Text4", StringTag::class.java).value).asJsonObject.get("extra").asJsonArray.get(0).asJsonObject.get("color").asString.toUpperCase()).toString() + line4
                                         sign.setLine(0, line1)
                                         sign.setLine(1, line2)
                                         sign.setLine(2, line3)

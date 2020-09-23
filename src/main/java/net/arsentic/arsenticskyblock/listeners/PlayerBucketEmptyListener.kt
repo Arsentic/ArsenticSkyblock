@@ -14,6 +14,7 @@ import java.lang.reflect.InvocationTargetException
 
 class PlayerBucketEmptyListener : Listener {
     val supports: Boolean = Material.supports(13)
+
     @EventHandler
     fun onBucketEmpty(event: PlayerBucketEmptyEvent) {
         val type = event.bucket

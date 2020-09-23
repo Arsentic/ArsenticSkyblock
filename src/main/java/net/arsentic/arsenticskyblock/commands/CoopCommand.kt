@@ -1,11 +1,11 @@
 package net.arsentic.arsenticskyblock.commands
 
-import net.arsentic.arsenticskyblock.IridiumSkyblock
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import org.bukkit.Bukkit
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
-class CoopCommand(plugin: IridiumSkyblock): Command(plugin, listOf("coop"), "Coops you to an island", "", true) {
+class CoopCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("coop"), "Coops you to an island", "", true) {
     override fun execute(sender: CommandSender, args: Array<String>) {
         val p = sender as Player
         val user = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(p)
@@ -25,19 +25,19 @@ class CoopCommand(plugin: IridiumSkyblock): Command(plugin, listOf("coop"), "Coo
                         u.island.inviteCoop(user.island)
                         sender.sendMessage(
                             _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                                _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().coopInviteSent.replace(
+                                _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().coopInviteSent.replace(
                                     "%player%",
                                     _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(u.island.getOwner()).name
-                                ).replace("%prefix%", _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix)
+                                ).replace("%prefix%", _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix)
                             )
                         )
                     }
                 } else {
                     sender.sendMessage(
                         _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().noPermission.replace(
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().noPermission.replace(
                                 "%prefix%",
-                                _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                                _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                             )
                         )
                     )
@@ -45,9 +45,9 @@ class CoopCommand(plugin: IridiumSkyblock): Command(plugin, listOf("coop"), "Coo
             } else {
                 sender.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().playerNoIsland.replace(
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().playerNoIsland.replace(
                             "%prefix%",
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                         )
                     )
                 )
@@ -55,9 +55,9 @@ class CoopCommand(plugin: IridiumSkyblock): Command(plugin, listOf("coop"), "Coo
         } else {
             sender.sendMessage(
                 _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                    _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().noIsland.replace(
+                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().noIsland.replace(
                         "%prefix%",
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                     )
                 )
             )
@@ -81,19 +81,19 @@ class CoopCommand(plugin: IridiumSkyblock): Command(plugin, listOf("coop"), "Coo
                     u.island.inviteCoop(island)
                     sender.sendMessage(
                         _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().coopInviteSent.replace(
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().coopInviteSent.replace(
                                 "%player%",
                                 _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(u.island.getOwner()).name
-                            ).replace("%prefix%", _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix)
+                            ).replace("%prefix%", _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix)
                         )
                     )
                 }
             } else {
                 sender.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().playerNoIsland.replace(
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().playerNoIsland.replace(
                             "%prefix%",
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                         )
                     )
                 )
@@ -101,9 +101,9 @@ class CoopCommand(plugin: IridiumSkyblock): Command(plugin, listOf("coop"), "Coo
         } else {
             sender.sendMessage(
                 _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                    _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().noIsland.replace(
+                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().noIsland.replace(
                         "%prefix%",
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                     )
                 )
             )

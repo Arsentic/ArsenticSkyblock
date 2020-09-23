@@ -2,7 +2,7 @@ package net.arsentic.arsenticskyblock.api
 
 import net.arsentic.arsenticskyblock.Role
 import net.arsentic.arsenticskyblock.User
-import net.arsentic.arsenticskyblock.island.Island.Island
+import net.arsentic.arsenticskyblock.island.Island
 import org.bukkit.event.Cancellable
 
 class IslandPromoteEvent(island: Island, private val target: User, private val promoter: User, private val role: Role) : IslandEvent(island), Cancellable {

@@ -1,10 +1,10 @@
 package net.arsentic.arsenticskyblock.commands
 
-import net.arsentic.arsenticskyblock.IridiumSkyblock
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
-class PrivateCommand(plugin: IridiumSkyblock): Command(plugin, listOf("private"), "Stop players visiting your island", "", true) {
+class PrivateCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("private"), "Stop players visiting your island", "", true) {
     override fun execute(sender: CommandSender, args: Array<String>) {
         val p = sender as Player
         val user = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(p)
@@ -13,18 +13,18 @@ class PrivateCommand(plugin: IridiumSkyblock): Command(plugin, listOf("private")
                 user.island.setVisit(false)
                 sender.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().islandNowPrivate.replace(
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().islandNowPrivate.replace(
                             "%prefix%",
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                         )
                     )
                 )
             } else {
                 sender.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().noPermission.replace(
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().noPermission.replace(
                             "%prefix%",
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                         )
                     )
                 )
@@ -32,9 +32,9 @@ class PrivateCommand(plugin: IridiumSkyblock): Command(plugin, listOf("private")
         } else {
             sender.sendMessage(
                 _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                    _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().noIsland.replace(
+                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().noIsland.replace(
                         "%prefix%",
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                     )
                 )
             )
@@ -46,18 +46,18 @@ class PrivateCommand(plugin: IridiumSkyblock): Command(plugin, listOf("private")
             island.setVisit(false)
             sender.sendMessage(
                 _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                    _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().islandNowPrivate.replace(
+                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().islandNowPrivate.replace(
                         "%prefix%",
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                     )
                 )
             )
         } else {
             sender.sendMessage(
                 _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                    _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().noIsland.replace(
+                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().noIsland.replace(
                         "%prefix%",
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                     )
                 )
             )

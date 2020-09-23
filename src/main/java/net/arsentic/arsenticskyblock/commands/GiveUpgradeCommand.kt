@@ -9,7 +9,7 @@ class GiveUpgradeCommand :
     override fun execute(sender: CommandSender, args: Array<String>) {
         if (args.size != 4 && args.size != 3) {
             sender.sendMessage(
-                _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix)
+                _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix)
                     .toString() + "/is giveupgrade <player> <upgrade> <level>"
             )
             return
@@ -22,25 +22,25 @@ class GiveUpgradeCommand :
                     try {
                         if (args[2].equals("size", ignoreCase = true)) {
                             val amount = if (args.size == 3) island.getSizeLevel() + 1 else args[3].toInt()
-                            if (_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getUpgrades().sizeUpgrade.upgrades.containsKey(amount)) {
+                            if (_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getUpgrades().sizeUpgrade.upgrades.containsKey(amount)) {
                                 island.setSizeLevel(amount)
                             }
                         }
                         if (args[2].equals("member", ignoreCase = true)) {
                             val amount = if (args.size == 3) island.getMemberLevel() + 1 else args[3].toInt()
-                            if (_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getUpgrades().memberUpgrade.upgrades.containsKey(amount)) {
+                            if (_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getUpgrades().memberUpgrade.upgrades.containsKey(amount)) {
                                 island.setMemberLevel(amount)
                             }
                         }
                         if (args[2].equals("warp", ignoreCase = true)) {
                             val amount = if (args.size == 3) island.getWarpLevel() + 1 else args[3].toInt()
-                            if (_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getUpgrades().warpUpgrade.upgrades.containsKey(amount)) {
+                            if (_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getUpgrades().warpUpgrade.upgrades.containsKey(amount)) {
                                 island.setWarpLevel(amount)
                             }
                         }
                         if (args[2].equals("ores", ignoreCase = true)) {
                             val amount = if (args.size == 3) island.getOreLevel() + 1 else args[3].toInt()
-                            if (_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getUpgrades().oresUpgrade.upgrades.containsKey(amount)) {
+                            if (_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getUpgrades().oresUpgrade.upgrades.containsKey(amount)) {
                                 island.setOreLevel(amount)
                             }
                         }
@@ -50,9 +50,9 @@ class GiveUpgradeCommand :
                 } else {
                     sender.sendMessage(
                         _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().playerNoIsland.replace(
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().playerNoIsland.replace(
                                 "%prefix%",
-                                _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                                _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                             )
                         )
                     )
@@ -60,9 +60,9 @@ class GiveUpgradeCommand :
             } else {
                 sender.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().playerOffline.replace(
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().playerOffline.replace(
                             "%prefix%",
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                         )
                     )
                 )

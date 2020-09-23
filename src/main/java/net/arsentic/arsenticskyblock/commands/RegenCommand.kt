@@ -1,11 +1,11 @@
 package net.arsentic.arsenticskyblock.commands
 
-import net.arsentic.arsenticskyblock.IridiumSkyblock
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 import java.util.concurrent.TimeUnit
 
-class RegenCommand(plugin: IridiumSkyblock): Command(plugin, listOf("regen", "reset"), "Regenerate your island", "", true) {
+class RegenCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("regen", "reset"), "Regenerate your island", "", true) {
     override fun execute(sender: CommandSender, args: Array<String>) {
         val p = sender as Player
         val user = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(p)
@@ -14,9 +14,9 @@ class RegenCommand(plugin: IridiumSkyblock): Command(plugin, listOf("regen", "re
                 if (user.bypassing || user.island.getPermissions(user.role).regen) {
                     val time: Long = user.island.canGenerate() / 1000
                     if (time == 0L || user.bypassing) {
-                        if (_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getSchematics().schematics.size() === 1) {
+                        if (_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getSchematics().schematics.size() === 1) {
                             p.openInventory(_root_ide_package_.net.arsentic.arsenticskyblock.gui.ConfirmationGUI(user.island, {
-                                for (schematic in _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getSchematics().schematics) {
+                                for (schematic in _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getSchematics().schematics) {
                                     user.island.setSchematic(schematic.name)
                                     user.island.setHome(
                                         user.island.getHome().add(schematic.x, schematic.y, schematic.z)
@@ -26,7 +26,7 @@ class RegenCommand(plugin: IridiumSkyblock): Command(plugin, listOf("regen", "re
                                     )
                                 }
                                 user.island.pasteSchematic(true)
-                                if (_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().restartUpgradesOnRegen) {
+                                if (_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().restartUpgradesOnRegen) {
                                     user.island.resetMissions()
                                     user.island.setSizeLevel(1)
                                     user.island.setMemberLevel(1)
@@ -41,7 +41,7 @@ class RegenCommand(plugin: IridiumSkyblock): Command(plugin, listOf("regen", "re
                                     user.island.money = 0
                                 }
                                 user.island.teleportPlayersHome()
-                            }, _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().resetAction).inventory)
+                            }, _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().resetAction).inventory)
                         } else {
                             p.openInventory(user.island.getSchematicSelectGUI().getInventory())
                         }
@@ -53,21 +53,21 @@ class RegenCommand(plugin: IridiumSkyblock): Command(plugin, listOf("regen", "re
                         val second = Math.floor((time - day * 86400 - hours * 3600) % 60.00).toInt()
                         p.sendMessage(
                             _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                                _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().regenCooldown.replace(
+                                _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().regenCooldown.replace(
                                     "%days%",
                                     day.toString() + ""
                                 ).replace("%hours%", hours.toString() + "").replace("%minutes%", minute.toString() + "")
                                     .replace("%seconds%", second.toString() + "")
-                                    .replace("%prefix%", _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix)
+                                    .replace("%prefix%", _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix)
                             )
                         )
                     }
                 } else {
                     sender.sendMessage(
                         _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().noPermission.replace(
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().noPermission.replace(
                                 "%prefix%",
-                                _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                                _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                             )
                         )
                     )
@@ -75,9 +75,9 @@ class RegenCommand(plugin: IridiumSkyblock): Command(plugin, listOf("regen", "re
             } else {
                 sender.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().mustBeIslandOwner.replace(
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().mustBeIslandOwner.replace(
                             "%prefix%",
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                         )
                     )
                 )
@@ -85,9 +85,9 @@ class RegenCommand(plugin: IridiumSkyblock): Command(plugin, listOf("regen", "re
         } else {
             sender.sendMessage(
                 _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                    _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().noIsland.replace(
+                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().noIsland.replace(
                         "%prefix%",
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                     )
                 )
             )
@@ -97,15 +97,15 @@ class RegenCommand(plugin: IridiumSkyblock): Command(plugin, listOf("regen", "re
     override fun admin(sender: CommandSender, args: Array<String>, island: Island?) {
         val p = sender as Player
         if (island != null) {
-            if (_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getSchematics().schematics.size() === 1) {
+            if (_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getSchematics().schematics.size() === 1) {
                 p.openInventory(_root_ide_package_.net.arsentic.arsenticskyblock.gui.ConfirmationGUI(island, {
-                    for (schematic in _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getSchematics().schematics) {
+                    for (schematic in _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getSchematics().schematics) {
                         island.setSchematic(schematic.name)
                         island.setHome(island.getHome().add(schematic.x, schematic.y, schematic.z))
                         island.setNetherhome(island.getNetherhome().add(schematic.x, schematic.y, schematic.z))
                     }
                     island.pasteSchematic(true)
-                    if (_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().restartUpgradesOnRegen) {
+                    if (_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().restartUpgradesOnRegen) {
                         island.resetMissions()
                         island.setSizeLevel(1)
                         island.setMemberLevel(1)
@@ -120,16 +120,16 @@ class RegenCommand(plugin: IridiumSkyblock): Command(plugin, listOf("regen", "re
                         island.money = 0
                     }
                     island.teleportPlayersHome()
-                }, _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().resetAction).inventory)
+                }, _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().resetAction).inventory)
             } else {
                 p.openInventory(island.getSchematicSelectGUI().getInventory())
             }
         } else {
             sender.sendMessage(
                 _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                    _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().noIsland.replace(
+                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().noIsland.replace(
                         "%prefix%",
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                     )
                 )
             )

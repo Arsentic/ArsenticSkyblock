@@ -1,6 +1,6 @@
 package net.arsentic.arsenticskyblock.listeners
 
-import net.arsentic.arsenticskyblock.IridiumSkyblock
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import net.arsentic.arsenticskyblock.User
 import net.arsentic.arsenticskyblock.manager.IslandManager
 import net.arsentic.arsenticskyblock.util.Utils
@@ -14,7 +14,7 @@ class PlayerJoinLeaveListener : Listener {
     fun onJoin(event: PlayerJoinEvent) {
         try {
             val player = event.player
-            val plugin: IridiumSkyblock = getInstance()
+            val plugin: ArsenticSkyblock = getInstance()
             if (player.isOp) {
                 val latest: String = plugin.getLatest()
                 if (plugin.getLatest() != null && getConfiguration().notifyAvailableUpdate

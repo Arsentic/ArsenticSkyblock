@@ -1,14 +1,14 @@
 package net.arsentic.arsenticskyblock.commands
 
-import net.arsentic.arsenticskyblock.IridiumSkyblock
-import net.arsentic.arsenticskyblock.island.Island.Island
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
+import net.arsentic.arsenticskyblock.island.Island
 import net.arsentic.arsenticskyblock.util.Utils
 import org.apache.commons.lang.StringUtils
 import org.bukkit.Bukkit
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
-class AdminCommand(plugin: IridiumSkyblock) : Command(plugin, listOf("admin"), "Control a players Island", "iridiumskyblock.admin", true) {
+class AdminCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("admin"), "Control a players Island", "iridiumskyblock.admin", true) {
     override fun execute(sender: CommandSender, args: Array<String>) {
         val player = sender as Player
 
@@ -29,7 +29,7 @@ class AdminCommand(plugin: IridiumSkyblock) : Command(plugin, listOf("admin"), "
             val id = args[1].toInt()
             island = plugin.getIslandManager().getIslandViaId(id)
             if (island != null) {
-                for (command in _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommandManager().commands) {
+                for (command in _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommandManager().commands) {
                     if (command.getAliases().contains(args[2]) && command.isEnabled()) {
                         if ((sender.hasPermission(command.getPermission()) || command.getPermission()
                                 .equalsIgnoreCase("") || command.getPermission()
@@ -40,9 +40,9 @@ class AdminCommand(plugin: IridiumSkyblock) : Command(plugin, listOf("admin"), "
                             // No permission
                             sender.sendMessage(
                                 Utils.color(
-                                    _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().noPermission.replace(
+                                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().noPermission.replace(
                                         "%prefix%",
-                                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                                     )
                                 )
                             )
@@ -64,9 +64,9 @@ class AdminCommand(plugin: IridiumSkyblock) : Command(plugin, listOf("admin"), "
         } else {
             p.sendMessage(
                 Utils.color(
-                    _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().playerNoIsland.replace(
+                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().playerNoIsland.replace(
                         "%prefix%",
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                     )
                 )
             )

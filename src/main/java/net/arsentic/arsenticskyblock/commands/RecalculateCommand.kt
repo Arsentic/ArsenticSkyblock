@@ -11,15 +11,15 @@ class RecalculateCommand :
         if (id != 0) {
             sender.sendMessage(
                 _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                    _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().calculationAlreadyInProcess.replace(
+                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().calculationAlreadyInProcess.replace(
                         "%prefix%",
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                     )
                 )
             )
             return
         }
-        val manager: _root_ide_package_.net.arsentic.arsenticskyblock.manager.IslandManager = _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getIslandManager()
+        val manager: _root_ide_package_.net.arsentic.arsenticskyblock.manager.IslandManager = _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getIslandManager()
         val interval = 5
         val total = manager.islands.size
         val totalSecconds = total * (interval / 20.00)
@@ -28,14 +28,14 @@ class RecalculateCommand :
         sender.sendMessage("$total $totalSecconds $minutes $seconds")
         sender.sendMessage(
             _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().calculatingIslands.replace(
+                _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().calculatingIslands.replace(
                     "%amount%",
                     total.toString() + ""
                 ).replace("%seconds%", seconds.toString() + "").replace("%minutes%", minutes.toString() + "")
-                    .replace("%prefix%", _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix)
+                    .replace("%prefix%", _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix)
             )
         )
-        id = Bukkit.getScheduler().scheduleSyncRepeatingTask(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getInstance(), object : Runnable {
+        id = Bukkit.getScheduler().scheduleSyncRepeatingTask(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getInstance(), object : Runnable {
             var islands: ListIterator<Int> = ArrayList(manager.islands.keys).listIterator()
             override fun run() {
                 if (islands.hasNext()) {
@@ -47,9 +47,9 @@ class RecalculateCommand :
                 } else {
                     sender.sendMessage(
                         _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().calculatingFinished.replace(
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().calculatingFinished.replace(
                                 "%prefix%",
-                                _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                                _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                             )
                         )
                     )

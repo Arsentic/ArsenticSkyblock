@@ -1,8 +1,9 @@
 package net.arsentic.arsenticskyblock.configs
 
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import java.util.*
 
-class Upgrades {
+class Upgrades(plugin: ArsenticSkyblock) : Config(plugin) {
     var sizeUpgrade = Upgrade(true, 10, object : HashMap<Int, IslandUpgrade>() {
         init {
             put(1, IslandUpgrade(15, 0, 50))

@@ -1,8 +1,9 @@
 package net.arsentic.arsenticskyblock.configs
 
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import net.arsentic.arsenticskyblock.Role
 
-class Messages {
+class Messages(plugin: ArsenticSkyblock) : Config(plugin) {
     var reloaded = "%prefix% &7Configuration reloaded."
     var noPermission = "%prefix% &7You don't have permission for that."
     var noIsland = "%prefix% &7You don't have an island."
@@ -57,8 +58,8 @@ class Messages {
     var setHome = "%prefix% &7You have set your home to this location."
     var isNotSafe = "%prefix% &7This location is not safe."
     var helpMessage = "&b&l * &7 %command% : &b %description%"
-    var helpHeader = "&b&lIridiumSkyblock: &bHelp"
-    var transferdOwnership = "%prefix% &7Island ownership transferred to %player%."
+    var helpHeader = "&b&lArsenticSkyblock: &bHelp"
+    var transferredOwnership = "%prefix% &7Island ownership transferred to %player%."
     var bannedFromIsland = "%prefix% &7You have been banned from vising this island."
     var playerBanned = "%prefix% &7You have banned %player% from vising your island."
     var playerUnBanned = "%prefix% &7You have un-banned %player% from vising your island."

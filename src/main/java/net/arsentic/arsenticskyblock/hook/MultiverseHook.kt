@@ -1,10 +1,10 @@
 package net.arsentic.arsenticskyblock.hook
 
-import net.arsentic.arsenticskyblock.IridiumSkyblock
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import net.arsentic.arsenticskyblock.manager.IslandManager
 import org.bukkit.Bukkit
 
-class MultiverseHook(plugin: IridiumSkyblock) : PluginHook(plugin, Bukkit.getPluginManager().getPlugin("Multiverse-Core")) {
+class MultiverseHook(plugin: ArsenticSkyblock) : PluginHook(plugin, Bukkit.getPluginManager().getPlugin("Multiverse-Core")) {
     override fun addMethods() {
         val name = plugin.description.name
         val islandManager = plugin.getManager(IslandManager::class)

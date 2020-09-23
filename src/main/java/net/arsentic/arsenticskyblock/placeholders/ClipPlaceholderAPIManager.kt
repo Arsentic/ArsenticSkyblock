@@ -1,7 +1,7 @@
 package net.arsentic.arsenticskyblock.placeholders
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion
-import net.arsentic.arsenticskyblock.IridiumSkyblock
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import net.arsentic.arsenticskyblock.User
 import net.arsentic.arsenticskyblock.util.Utils
 import org.bukkit.Bukkit
@@ -65,9 +65,9 @@ class ClipPlaceholderAPIManager : PlaceholderExpansion() {
                 return online.toString() + ""
             }
             "island_upgrade_member_level" -> return if (user.island != null) NumberFormat.getInstance().format(user.island.getMemberLevel()).toString() + "" else getConfiguration().placeholderDefaultValue
-            "island_upgrade_member_amount" -> return if (user.island != null) IridiumSkyblock.Companion.getUpgrades()!!.memberUpgrade.upgrades.get(user.island.getMemberLevel())!!.size.toString() + "" else getConfiguration().placeholderDefaultValue
+            "island_upgrade_member_amount" -> return if (user.island != null) ArsenticSkyblock.Companion.getUpgrades()!!.memberUpgrade.upgrades.get(user.island.getMemberLevel())!!.size.toString() + "" else getConfiguration().placeholderDefaultValue
             "island_upgrade_size_level" -> return if (user.island != null) user.island.getSizeLevel().toString() + "" else getConfiguration().placeholderDefaultValue
-            "island_upgrade_size_dimensions" -> return if (user.island != null) IridiumSkyblock.Companion.getUpgrades()!!.sizeUpgrade.upgrades.get(user.island.getSizeLevel())!!.size.toString() + "" else getConfiguration().placeholderDefaultValue
+            "island_upgrade_size_dimensions" -> return if (user.island != null) ArsenticSkyblock.Companion.getUpgrades()!!.sizeUpgrade.upgrades.get(user.island.getSizeLevel())!!.size.toString() + "" else getConfiguration().placeholderDefaultValue
             "island_upgrade_ore_level" -> return if (user.island != null) user.island.getOreLevel().toString() + "" else getConfiguration().placeholderDefaultValue
             "island_upgrade_warp_level" -> return if (user.island != null) user.island.getWarpLevel().toString() + "" else getConfiguration().placeholderDefaultValue
             "island_booster_spawner" -> return if (user.island != null) user.island.getSpawnerBooster().toString() + "" else getConfiguration().placeholderDefaultValue

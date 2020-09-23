@@ -1,7 +1,7 @@
 package net.arsentic.arsenticskyblock.gui
 
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import net.arsentic.arsenticskyblock.Color
-import net.arsentic.arsenticskyblock.IridiumSkyblock
 import net.arsentic.arsenticskyblock.util.Utils
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
@@ -20,10 +20,10 @@ class BorderColorGUI(island: Island?) : GUI(island, getInventories().borderColor
         green = Utils.makeItem(getInventories().green)
         blue = Utils.makeItem(getInventories().blue)
         off = Utils.makeItem(getInventories().off)
-        if (IridiumSkyblock.Companion.border!!.RedEnabled) setItem(10, red)
-        if (IridiumSkyblock.Companion.border!!.BlueEnabled) setItem(12, blue)
-        if (IridiumSkyblock.Companion.border!!.GreenEnabled) setItem(14, green)
-        if (IridiumSkyblock.Companion.border!!.OffEnabled) setItem(16, off)
+        if (ArsenticSkyblock.Companion.border!!.RedEnabled) setItem(10, red)
+        if (ArsenticSkyblock.Companion.border!!.BlueEnabled) setItem(12, blue)
+        if (ArsenticSkyblock.Companion.border!!.GreenEnabled) setItem(14, green)
+        if (ArsenticSkyblock.Companion.border!!.OffEnabled) setItem(16, off)
     }
 
     @EventHandler

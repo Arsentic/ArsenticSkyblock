@@ -9,53 +9,53 @@ import java.util.*
 class CommandManager(command: String?) : CommandExecutor, TabCompleter {
     var commands: MutableList<Command> = ArrayList()
     fun registerCommands() {
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().aboutCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().boosterCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().bypassCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().createCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().crystalsCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().deleteCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().flyCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().homeCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().inviteCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().joinCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().kickCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().leaveCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().membersCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().missionsCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().privateCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().publicCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().regenCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().reloadCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().topCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().upgradeCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().valueCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().visitCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().warpCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().warpsCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().giveCrystalsCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().removeCrystalsCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().worldBorderCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().setHomeCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().permissionsCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().transferCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().adminCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().giveBoosterCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().banCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().unBanCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().coopCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().unCoopCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().setNameCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().bankCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().chatCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().giveUpgradeCommand)
-        if (_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().islandShop) registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().shopCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().biomeCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().helpCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().languagesCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().recalculateCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().removeValueCommand)
-        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommands().addValueCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().aboutCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().boosterCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().bypassCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().createCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().crystalsCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().deleteCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().flyCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().homeCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().inviteCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().joinCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().kickCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().leaveCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().membersCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().missionsCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().privateCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().publicCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().regenCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().reloadCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().topCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().upgradeCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().valueCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().visitCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().warpCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().warpsCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().giveCrystalsCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().removeCrystalsCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().worldBorderCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().setHomeCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().permissionsCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().transferCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().adminCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().giveBoosterCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().banCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().unBanCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().coopCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().unCoopCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().setNameCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().bankCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().chatCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().giveUpgradeCommand)
+        if (_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().islandShop) registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().shopCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().biomeCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().helpCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().languagesCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().recalculateCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().removeValueCommand)
+        registerCommand(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommands().addValueCommand)
     }
 
     fun registerCommand(command: Command) {
@@ -80,9 +80,9 @@ class CommandManager(command: String?) : CommandExecutor, TabCompleter {
                             // Must be a player
                             cs.sendMessage(
                                 _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                                    _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().mustBeAPlayer.replace(
+                                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().mustBeAPlayer.replace(
                                         "%prefix%",
-                                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                                     )
                                 )
                             )
@@ -97,9 +97,9 @@ class CommandManager(command: String?) : CommandExecutor, TabCompleter {
                             // No permission
                             cs.sendMessage(
                                 _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                                    _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().noPermission.replace(
+                                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().noPermission.replace(
                                         "%prefix%",
-                                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                                     )
                                 )
                             )
@@ -113,8 +113,8 @@ class CommandManager(command: String?) : CommandExecutor, TabCompleter {
                     val u = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(p)
                     if (u.island != null) {
                         if (u.island.getSchematic() == null) {
-                            if (_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getSchematics().schematics.size() === 1) {
-                                for (schematic in _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getSchematics().schematics) {
+                            if (_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getSchematics().schematics.size() === 1) {
+                                for (schematic in _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getSchematics().schematics) {
                                     u.island.setSchematic(schematic.name)
                                 }
                             } else {
@@ -122,27 +122,27 @@ class CommandManager(command: String?) : CommandExecutor, TabCompleter {
                                 return true
                             }
                         }
-                        if (_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().islandMenu) {
+                        if (_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().islandMenu) {
                             p.openInventory(u.island.getIslandMenuGUI().getInventory())
                         } else {
                             u.island.teleportHome(p)
                         }
                     } else {
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getIslandManager().createIsland(p)
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getIslandManager().createIsland(p)
                     }
                     return true
                 }
             }
             cs.sendMessage(
                 _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                    _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().unknownCommand.replace(
+                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().unknownCommand.replace(
                         "%prefix%",
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                     )
                 )
             )
         } catch (e: Exception) {
-            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getInstance().sendErrorMessage(e)
+            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getInstance().sendErrorMessage(e)
         }
         return true
     }
@@ -177,13 +177,13 @@ class CommandManager(command: String?) : CommandExecutor, TabCompleter {
                 }
             }
         } catch (e: Exception) {
-            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getInstance().sendErrorMessage(e)
+            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getInstance().sendErrorMessage(e)
         }
         return null
     }
 
     init {
-        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getInstance().getCommand(command).setExecutor(this)
-        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getInstance().getCommand(command).setTabCompleter(this)
+        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getInstance().getCommand(command).setExecutor(this)
+        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getInstance().getCommand(command).setTabCompleter(this)
     }
 }

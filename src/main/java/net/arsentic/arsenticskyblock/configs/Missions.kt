@@ -1,11 +1,12 @@
 package net.arsentic.arsenticskyblock.configs
 
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import net.arsentic.arsenticskyblock.mission.MissionType
 import org.bukkit.CropState
 import org.bukkit.Material
 import java.util.*
 
-class Missions {
+class Missions(plugin: ArsenticSkyblock) : Config(plugin) {
     var missions = listOf(
         Mission(
             "Treasure Hunter", object : HashMap<Int, MissionData>() {

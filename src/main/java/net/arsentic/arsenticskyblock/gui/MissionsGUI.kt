@@ -15,7 +15,7 @@ class MissionsGUI(island: Island?) : GUI(island, getInventories().missionsGUISiz
                 val placeholderList = Utils.getIslandPlaceholders(island)
                 if (!island.getMissionLevels().containsKey(mission.name)) island.getMissionLevels().put(mission.name, 1)
                 val data = mission.levels[island.getMissionLevels().get(mission.name)]
-                placeholderList!!.add(Utils.Placeholder("level", island.getMissionLevels().get(mission.name).toString() + ""))
+                placeholderList.add(Utils.Placeholder("level", island.getMissionLevels().get(mission.name).toString() + ""))
                 placeholderList.add(Utils.Placeholder("vaultReward", data!!.vaultReward.toString() + ""))
                 placeholderList.add(Utils.Placeholder("crystalsReward", data!!.crystalReward.toString() + ""))
                 placeholderList.add(Utils.Placeholder("amount", data!!.amount.toString() + ""))

@@ -1,6 +1,6 @@
 package net.arsentic.arsenticskyblock.commands
 
-import net.arsentic.arsenticskyblock.IridiumSkyblock
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import net.md_5.bungee.api.chat.ClickEvent
 import net.md_5.bungee.api.chat.ComponentBuilder
 import net.md_5.bungee.api.chat.HoverEvent
@@ -10,7 +10,7 @@ import org.bukkit.ChatColor
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
-class HelpCommand(plugin: IridiumSkyblock): Command(plugin, listOf("help"), "Displays the plugin commands", "", true) {
+class HelpCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("help"), "Displays the plugin commands", "", true) {
     override fun execute(cs: CommandSender, args: Array<String>) {
         val p = cs as Player
         var page = 1
@@ -20,17 +20,17 @@ class HelpCommand(plugin: IridiumSkyblock): Command(plugin, listOf("help"), "Dis
             }
             page = args[1].toInt()
         }
-        val maxpage = Math.ceil(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommandManager().commands.size() / 18.00).toInt()
+        val maxpage = Math.ceil(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommandManager().commands.size() / 18.00).toInt()
         var current = 0
-        p.sendMessage(_root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().helpHeader))
-        for (command in _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getCommandManager().commands) {
+        p.sendMessage(_root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().helpHeader))
+        for (command in _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommandManager().commands) {
             if ((p.hasPermission(command.getPermission()) || command.getPermission()
                     .equalsIgnoreCase("") || command.getPermission()
                     .equalsIgnoreCase("iridiumskyblock.")) && command.isEnabled()
             ) {
                 if (current >= (page - 1) * 18 && current < page * 18) p.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().helpMessage.replace(
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().helpMessage.replace(
                             "%command%",
                             command.getAliases().get(0)
                         ).replace("%description%", command.getDescription())
@@ -41,20 +41,20 @@ class HelpCommand(plugin: IridiumSkyblock): Command(plugin, listOf("help"), "Dis
         }
         val components = TextComponent.fromLegacyText(
             _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().helpfooter.replace(
+                _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().helpfooter.replace(
                     "%maxpage%",
                     maxpage.toString() + ""
                 ).replace("%page%", page.toString() + "")
             )
         )
         for (component in components) {
-            if (ChatColor.stripColor(component.toLegacyText()).contains(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().nextPage)) {
+            if (ChatColor.stripColor(component.toLegacyText()).contains(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().nextPage)) {
                 if (page < maxpage) {
                     component.clickEvent = ClickEvent(ClickEvent.Action.RUN_COMMAND, "/is help " + (page + 1))
                     component.hoverEvent = HoverEvent(
                         HoverEvent.Action.SHOW_TEXT,
                         ComponentBuilder(
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().helpPageHoverMessage.replace(
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().helpPageHoverMessage.replace(
                                 "%page%",
                                 "" + (page + 1)
                             )
@@ -62,14 +62,14 @@ class HelpCommand(plugin: IridiumSkyblock): Command(plugin, listOf("help"), "Dis
                     )
                 }
             } else if (ChatColor.stripColor(component.toLegacyText())
-                    .contains(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().previousPage)
+                    .contains(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().previousPage)
             ) {
                 if (page > 1) {
                     component.clickEvent = ClickEvent(ClickEvent.Action.RUN_COMMAND, "/is help " + (page - 1))
                     component.hoverEvent = HoverEvent(
                         HoverEvent.Action.SHOW_TEXT,
                         ComponentBuilder(
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().helpPageHoverMessage.replace(
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().helpPageHoverMessage.replace(
                                 "%page%",
                                 "" + (page - 1)
                             )

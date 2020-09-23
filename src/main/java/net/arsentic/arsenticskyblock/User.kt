@@ -1,10 +1,10 @@
 package net.arsentic.arsenticskyblock
 
-import net.arsentic.arsenticskyblock.island.Island.Island
+import net.arsentic.arsenticskyblock.island.Island
 import org.bukkit.OfflinePlayer
 import java.util.*
 
-class User(val plugin: IridiumSkyblock, player: OfflinePlayer) {
+class User(val plugin: ArsenticSkyblock, player: OfflinePlayer) {
     var name: String?
     var islandID: Int
     lateinit var role: Role

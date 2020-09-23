@@ -1,6 +1,6 @@
 package net.arsentic.arsenticskyblock.gui
 
-import net.arsentic.arsenticskyblock.IridiumSkyblock
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import net.arsentic.arsenticskyblock.configs.Upgrades.IslandUpgrade
 import net.arsentic.arsenticskyblock.util.Utils
 import org.bukkit.entity.Player
@@ -14,10 +14,10 @@ class UpgradeGUI(island: Island?) : GUI(island, getInventories().upgradeGUISize,
         if (inventory.viewers.isEmpty()) return
         val island: Island? = island
         if (island != null) {
-            if (IridiumSkyblock.Companion.getUpgrades()!!.sizeUpgrade.enabled) setItem(IridiumSkyblock.Companion.getUpgrades()!!.sizeUpgrade.slot, makeItemHidden(getInventories().size, getIsland()))
-            if (IridiumSkyblock.Companion.getUpgrades()!!.memberUpgrade.enabled) setItem(IridiumSkyblock.Companion.getUpgrades()!!.memberUpgrade.slot, makeItemHidden(getInventories().member, getIsland()))
-            if (IridiumSkyblock.Companion.getUpgrades()!!.warpUpgrade.enabled) setItem(IridiumSkyblock.Companion.getUpgrades()!!.warpUpgrade.slot, makeItemHidden(getInventories().warp, getIsland()))
-            if (IridiumSkyblock.Companion.getUpgrades()!!.oresUpgrade.enabled) setItem(IridiumSkyblock.Companion.getUpgrades()!!.oresUpgrade.slot, makeItemHidden(getInventories().ores, getIsland()))
+            if (ArsenticSkyblock.Companion.getUpgrades()!!.sizeUpgrade.enabled) setItem(ArsenticSkyblock.Companion.getUpgrades()!!.sizeUpgrade.slot, makeItemHidden(getInventories().size, getIsland()))
+            if (ArsenticSkyblock.Companion.getUpgrades()!!.memberUpgrade.enabled) setItem(ArsenticSkyblock.Companion.getUpgrades()!!.memberUpgrade.slot, makeItemHidden(getInventories().member, getIsland()))
+            if (ArsenticSkyblock.Companion.getUpgrades()!!.warpUpgrade.enabled) setItem(ArsenticSkyblock.Companion.getUpgrades()!!.warpUpgrade.slot, makeItemHidden(getInventories().warp, getIsland()))
+            if (ArsenticSkyblock.Companion.getUpgrades()!!.oresUpgrade.enabled) setItem(ArsenticSkyblock.Companion.getUpgrades()!!.oresUpgrade.slot, makeItemHidden(getInventories().ores, getIsland()))
         }
     }
 
@@ -27,9 +27,9 @@ class UpgradeGUI(island: Island?) : GUI(island, getInventories().upgradeGUISize,
             e.isCancelled = true
             if (e.clickedInventory == null || e.clickedInventory != inventory) return
             val p = e.whoClicked as Player
-            if (e.slot == IridiumSkyblock.Companion.getUpgrades()!!.sizeUpgrade.slot && IridiumSkyblock.Companion.getUpgrades()!!.sizeUpgrade.enabled) {
-                if (IridiumSkyblock.Companion.getUpgrades()!!.sizeUpgrade.upgrades.containsKey(island.getSizeLevel() + 1)) {
-                    val upgrade: IslandUpgrade = IridiumSkyblock.Companion.getUpgrades()!!.sizeUpgrade.upgrades.get(island.getSizeLevel() + 1)
+            if (e.slot == ArsenticSkyblock.Companion.getUpgrades()!!.sizeUpgrade.slot && ArsenticSkyblock.Companion.getUpgrades()!!.sizeUpgrade.enabled) {
+                if (ArsenticSkyblock.Companion.getUpgrades()!!.sizeUpgrade.upgrades.containsKey(island.getSizeLevel() + 1)) {
+                    val upgrade: IslandUpgrade = ArsenticSkyblock.Companion.getUpgrades()!!.sizeUpgrade.upgrades.get(island.getSizeLevel() + 1)
                     if (Utils.canBuy(p, upgrade.vaultCost.toDouble(), upgrade.crystalsCost)) {
                         island.setSizeLevel(island.getSizeLevel() + 1)
                     } else {
@@ -39,9 +39,9 @@ class UpgradeGUI(island: Island?) : GUI(island, getInventories().upgradeGUISize,
                     e.whoClicked.sendMessage(color(getMessages().maxLevelReached.replace("%prefix%", getConfiguration().prefix)))
                 }
             }
-            if (e.slot == IridiumSkyblock.Companion.getUpgrades()!!.memberUpgrade.slot && IridiumSkyblock.Companion.getUpgrades()!!.memberUpgrade.enabled) {
-                if (IridiumSkyblock.Companion.getUpgrades()!!.memberUpgrade.upgrades.containsKey(island.getMemberLevel() + 1)) {
-                    val upgrade: IslandUpgrade = IridiumSkyblock.Companion.getUpgrades()!!.memberUpgrade.upgrades.get(island.getMemberLevel() + 1)
+            if (e.slot == ArsenticSkyblock.Companion.getUpgrades()!!.memberUpgrade.slot && ArsenticSkyblock.Companion.getUpgrades()!!.memberUpgrade.enabled) {
+                if (ArsenticSkyblock.Companion.getUpgrades()!!.memberUpgrade.upgrades.containsKey(island.getMemberLevel() + 1)) {
+                    val upgrade: IslandUpgrade = ArsenticSkyblock.Companion.getUpgrades()!!.memberUpgrade.upgrades.get(island.getMemberLevel() + 1)
                     if (Utils.canBuy(p, upgrade.vaultCost.toDouble(), upgrade.crystalsCost)) {
                         island.setMemberLevel(island.getMemberLevel() + 1)
                     } else {
@@ -51,9 +51,9 @@ class UpgradeGUI(island: Island?) : GUI(island, getInventories().upgradeGUISize,
                     e.whoClicked.sendMessage(color(getMessages().maxLevelReached.replace("%prefix%", getConfiguration().prefix)))
                 }
             }
-            if (e.slot == IridiumSkyblock.Companion.getUpgrades()!!.warpUpgrade.slot && IridiumSkyblock.Companion.getUpgrades()!!.warpUpgrade.enabled) {
-                if (IridiumSkyblock.Companion.getUpgrades()!!.warpUpgrade.upgrades.containsKey(island.getWarpLevel() + 1)) {
-                    val upgrade: IslandUpgrade = IridiumSkyblock.Companion.getUpgrades()!!.warpUpgrade.upgrades.get(island.getWarpLevel() + 1)
+            if (e.slot == ArsenticSkyblock.Companion.getUpgrades()!!.warpUpgrade.slot && ArsenticSkyblock.Companion.getUpgrades()!!.warpUpgrade.enabled) {
+                if (ArsenticSkyblock.Companion.getUpgrades()!!.warpUpgrade.upgrades.containsKey(island.getWarpLevel() + 1)) {
+                    val upgrade: IslandUpgrade = ArsenticSkyblock.Companion.getUpgrades()!!.warpUpgrade.upgrades.get(island.getWarpLevel() + 1)
                     if (Utils.canBuy(p, upgrade.vaultCost.toDouble(), upgrade.crystalsCost)) {
                         island.setWarpLevel(island.getWarpLevel() + 1)
                     } else {
@@ -63,9 +63,9 @@ class UpgradeGUI(island: Island?) : GUI(island, getInventories().upgradeGUISize,
                     e.whoClicked.sendMessage(color(getMessages().maxLevelReached.replace("%prefix%", getConfiguration().prefix)))
                 }
             }
-            if (e.slot == IridiumSkyblock.Companion.getUpgrades()!!.oresUpgrade.slot && IridiumSkyblock.Companion.getUpgrades()!!.oresUpgrade.enabled) {
-                if (IridiumSkyblock.Companion.getUpgrades()!!.oresUpgrade.upgrades.containsKey(island.getOreLevel() + 1)) {
-                    val upgrade: IslandUpgrade = IridiumSkyblock.Companion.getUpgrades()!!.oresUpgrade.upgrades.get(island.getOreLevel() + 1)
+            if (e.slot == ArsenticSkyblock.Companion.getUpgrades()!!.oresUpgrade.slot && ArsenticSkyblock.Companion.getUpgrades()!!.oresUpgrade.enabled) {
+                if (ArsenticSkyblock.Companion.getUpgrades()!!.oresUpgrade.upgrades.containsKey(island.getOreLevel() + 1)) {
+                    val upgrade: IslandUpgrade = ArsenticSkyblock.Companion.getUpgrades()!!.oresUpgrade.upgrades.get(island.getOreLevel() + 1)
                     if (Utils.canBuy(p, upgrade.vaultCost.toDouble(), upgrade.crystalsCost)) {
                         island.setOreLevel(island.getOreLevel() + 1)
                     } else {

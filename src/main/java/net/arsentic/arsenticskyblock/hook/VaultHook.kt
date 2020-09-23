@@ -1,12 +1,12 @@
 package net.arsentic.arsenticskyblock.hook
 
-import net.arsentic.arsenticskyblock.IridiumSkyblock
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import net.milkbowl.vault.chat.Chat
 import net.milkbowl.vault.economy.Economy
 import net.milkbowl.vault.permission.Permission
 import org.bukkit.Bukkit
 
-class VaultHook(plugin: IridiumSkyblock) : PluginHook(plugin, Bukkit.getPluginManager().getPlugin("Vault")) {
+class VaultHook(plugin: ArsenticSkyblock) : PluginHook(plugin, Bukkit.getPluginManager().getPlugin("Vault")) {
     lateinit var economy: Economy
     lateinit var permission: Permission
     lateinit var chat: Chat

@@ -1,15 +1,15 @@
 package net.arsentic.arsenticskyblock.commands
 
-import net.arsentic.arsenticskyblock.IridiumSkyblock
-import net.arsentic.arsenticskyblock.island.Island.Island
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
+import net.arsentic.arsenticskyblock.island.Island
 import org.bukkit.Bukkit
 import org.bukkit.OfflinePlayer
 import org.bukkit.command.CommandSender
 
-class AddValueCommand(plugin: IridiumSkyblock): Command(plugin, true, false, "Give an island extra value", "iridiumskyblock.addvalue", listOf("addvalue"), ) {
+class AddValueCommand(plugin: ArsenticSkyblock) : Command(plugin, true, false, "Give an island extra value", "iridiumskyblock.addvalue", listOf("addvalue")) {
     override fun execute(sender: CommandSender, args: Array<String>) {
         if (args.size != 3) {
-            sender.sendMessage(_root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix).toString() + "/is addvalue <player> <amount>")
+            sender.sendMessage(_root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix).toString() + "/is addvalue <player> <amount>")
             return
         }
 
@@ -27,9 +27,9 @@ class AddValueCommand(plugin: IridiumSkyblock): Command(plugin, true, false, "Gi
                 } else {
                     sender.sendMessage(
                         _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().playerNoIsland.replace(
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().playerNoIsland.replace(
                                 "%prefix%",
-                                _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                                _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                             )
                         )
                     )
@@ -37,9 +37,9 @@ class AddValueCommand(plugin: IridiumSkyblock): Command(plugin, true, false, "Gi
             } else {
                 sender.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().playerOffline.replace(
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().playerOffline.replace(
                             "%prefix%",
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                         )
                     )
                 )

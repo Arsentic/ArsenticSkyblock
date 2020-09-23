@@ -1,32 +1,32 @@
 package net.arsentic.arsenticskyblock.commands
 
-import net.arsentic.arsenticskyblock.IridiumSkyblock
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
-class SetHomeCommand(plugin: IridiumSkyblock): Command(plugin, listOf("sethome"), "Set your island home", "", true) {
+class SetHomeCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("sethome"), "Set your island home", "", true) {
     override fun execute(sender: CommandSender, args: Array<String>) {
         val p = sender as Player
         val user = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(p)
         if (user.island != null) {
-            if (_root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.isSafe(p.location, user.island) && p.location.world == _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getIslandManager()
+            if (_root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.isSafe(p.location, user.island) && p.location.world == _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getIslandManager()
                     .getWorld()
             ) {
                 user.island.setHome(p.location)
                 p.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().setHome.replace(
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().setHome.replace(
                             "%prefix%",
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                         )
                     )
                 )
             } else {
                 p.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().isNotSafe.replace(
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().isNotSafe.replace(
                             "%prefix%",
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                         )
                     )
                 )
@@ -34,9 +34,9 @@ class SetHomeCommand(plugin: IridiumSkyblock): Command(plugin, listOf("sethome")
         } else {
             p.sendMessage(
                 _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                    _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().noIsland.replace(
+                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().noIsland.replace(
                         "%prefix%",
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                     )
                 )
             )
@@ -46,22 +46,22 @@ class SetHomeCommand(plugin: IridiumSkyblock): Command(plugin, listOf("sethome")
     override fun admin(sender: CommandSender, args: Array<String>, island: Island?) {
         val p = sender as Player
         if (island != null) {
-            if (_root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.isSafe(p.location, island) && p.location.world == _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getIslandManager().getWorld()) {
+            if (_root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.isSafe(p.location, island) && p.location.world == _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getIslandManager().getWorld()) {
                 island.setHome(p.location)
                 p.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().setHome.replace(
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().setHome.replace(
                             "%prefix%",
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                         )
                     )
                 )
             } else {
                 p.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().isNotSafe.replace(
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().isNotSafe.replace(
                             "%prefix%",
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                         )
                     )
                 )
@@ -69,9 +69,9 @@ class SetHomeCommand(plugin: IridiumSkyblock): Command(plugin, listOf("sethome")
         } else {
             p.sendMessage(
                 _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                    _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().noIsland.replace(
+                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().noIsland.replace(
                         "%prefix%",
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                     )
                 )
             )

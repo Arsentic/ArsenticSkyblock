@@ -1,6 +1,8 @@
 package net.arsentic.arsenticskyblock.configs
 
-class Boosters {
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
+
+class Boosters(plugin: ArsenticSkyblock) : Config(plugin) {
     var spawnerBooster = Booster(15, 0, 3600, true, 10)
     var farmingBooster = Booster(15, 0, 3600, true, 12)
     var experienceBooster = Booster(15, 0, 3600, true, 14)

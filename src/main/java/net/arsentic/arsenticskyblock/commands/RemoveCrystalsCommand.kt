@@ -10,7 +10,7 @@ class RemoveCrystalsCommand :
     override fun execute(sender: CommandSender, args: Array<String>) {
         if (args.size != 3) {
             sender.sendMessage(
-                _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix)
+                _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix)
                     .toString() + "/is removecrystals <player> <amount>"
             )
             sender.sendMessage("/is removecrystals <player> <amount>")
@@ -27,20 +27,20 @@ class RemoveCrystalsCommand :
                             island.setCrystals(island.getCrystals() - amount)
                             sender.sendMessage(
                                 _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                                    _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().removedcrystals.replace(
+                                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().removedcrystals.replace(
                                         "%crystals%",
                                         args[2]
                                     ).replace("%player%", player.name)
-                                        .replace("%prefix%", _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix)
+                                        .replace("%prefix%", _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix)
                                 )
                             )
                         } else {
                             sender.sendMessage(
                                 _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                                    _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().playerNotEnoughCrystals.replace(
+                                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().playerNotEnoughCrystals.replace(
                                         "%player%",
                                         player.name
-                                    ).replace("%prefix%", _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix)
+                                    ).replace("%prefix%", _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix)
                                 )
                             )
                         }
@@ -51,9 +51,9 @@ class RemoveCrystalsCommand :
                 } else {
                     sender.sendMessage(
                         _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().playerNoIsland.replace(
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().playerNoIsland.replace(
                                 "%prefix%",
-                                _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                                _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                             )
                         )
                     )
@@ -61,9 +61,9 @@ class RemoveCrystalsCommand :
             } else {
                 sender.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().playerOffline.replace(
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().playerOffline.replace(
                             "%prefix%",
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                         )
                     )
                 )

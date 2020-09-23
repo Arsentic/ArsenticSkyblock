@@ -1,11 +1,11 @@
 package net.arsentic.arsenticskyblock.commands
 
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
+import net.arsentic.arsenticskyblock.island.Island
 import net.arsentic.core.library.HexUtils.colorify
-import net.arsentic.arsenticskyblock.IridiumSkyblock
-import net.arsentic.arsenticskyblock.island.Island.Island
 import org.bukkit.command.CommandSender
 
-class AboutCommand(plugin: IridiumSkyblock) : Command(plugin, true, false, "", "Displays plugin info", listOf("about", "version")) {
+class AboutCommand(plugin: ArsenticSkyblock) : Command(plugin, true, false, "", "Displays plugin info", listOf("about", "version")) {
     override fun execute(sender: CommandSender, args: Array<String>) {
         sender.sendMessage(colorify("&8Plugin Name: &7IridiumSkyblock"))
         sender.sendMessage(colorify("&8Plugin Version: &7${plugin.description.version}"))

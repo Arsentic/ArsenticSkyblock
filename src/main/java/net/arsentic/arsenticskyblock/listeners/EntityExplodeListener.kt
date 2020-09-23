@@ -1,6 +1,6 @@
 package net.arsentic.arsenticskyblock.listeners
 
-import net.arsentic.arsenticskyblock.IridiumSkyblock
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import net.arsentic.arsenticskyblock.manager.IslandManager
 import net.arsentic.arsenticskyblock.util.Utils
 import org.bukkit.Bukkit
@@ -33,7 +33,7 @@ class EntityExplodeListener : Listener {
             val islandManager: IslandManager = getIslandManager()
             if (!islandManager.isIslandWorld(location)) return
             val uuid = entity.uniqueId
-            val plugin: IridiumSkyblock = getInstance()
+            val plugin: ArsenticSkyblock = getInstance()
             val entities: MutableMap<UUID?, Island?>? = plugin.entities
             var island: Island? = entities!![uuid]
             if (island != null && island.isInIsland(location)) {
@@ -47,7 +47,7 @@ class EntityExplodeListener : Listener {
             for (block in event.blockList()) {
                 if (!island.isInIsland(block.location)) {
                     val state = block.state
-                    IridiumSkyblock.Companion.nms.setBlockFast(block, 0, 0.toByte())
+                    ArsenticSkyblock.Companion.nms.setBlockFast(block, 0, 0.toByte())
                     Bukkit.getScheduler().scheduleSyncDelayedTask(plugin) { state.update(true, true) }
                 }
                 if (!Utils.isBlockValuable(block)) continue

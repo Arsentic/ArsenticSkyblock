@@ -1,9 +1,10 @@
 package net.arsentic.arsenticskyblock.configs
 
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import org.bukkit.Material
 import java.util.*
 
-class Inventories {
+class Inventories(plugin: ArsenticSkyblock) : Config(plugin) {
     var upgradeGUITitle = "&7Upgrade"
     var boosterGUITitle = "&7Booster"
     var confirmationGUITitle = "&7Are you sure?"
@@ -15,7 +16,7 @@ class Inventories {
     var topGUITitle = "&7Top Islands"
     var borderColorGUITitle = "&7Border Color"
     var permissionsGUITitle = "&7Permissions"
-    var schematicselectGUITitle = "&7Select an Island"
+    var schematicSelectGUITitle = "&7Select an Island"
     var bankGUITitle = "&7Island Bank"
     var visitGUITitle = "&7Visit an Island"
     var shopGUITitle = "&7Island Shop"
@@ -30,7 +31,7 @@ class Inventories {
     var topGUISize = 27
     var borderColorGUISize = 27
     var permissionsGUISize = 27
-    var schematicselectGUISize = 27
+    var schematicSelectGUISize = 27
     var bankGUISize = 27
     var visitGUISize = 54
     var shopGUISize = 54
@@ -132,5 +133,4 @@ class Item {
         this.title = title
         this.headOwner = headOwner
     }
-}
 }

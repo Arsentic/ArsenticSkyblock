@@ -3,7 +3,7 @@ package net.arsentic.arsenticskyblock.listeners
 import com.earth2me.essentials.Essentials
 import com.earth2me.essentials.spawn.EssentialsSpawn
 import net.arsentic.arsenticskyblock.User
-import net.arsentic.arsenticskyblock.configs.Config
+import net.arsentic.arsenticskyblock.configs.Options
 import net.arsentic.arsenticskyblock.manager.IslandManager
 import org.bukkit.Bukkit
 import org.bukkit.GameMode
@@ -19,7 +19,7 @@ class PlayerMoveListener : Listener {
             val location = player.location
             val islandManager: IslandManager = getIslandManager()
             if (!islandManager.isIslandWorld(location)) return
-            val config: Config = getConfiguration()
+            val config: Options = getConfiguration()
             if (location.y < 0 && config.voidTeleport) {
                 val island: Island? = islandManager.getIslandViaLocation(location)
                 val world = location.world ?: return

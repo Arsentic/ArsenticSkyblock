@@ -1,6 +1,6 @@
 package net.arsentic.arsenticskyblock.api
 
-import net.arsentic.arsenticskyblock.island.Island.Island
+import net.arsentic.arsenticskyblock.island.Island
 import org.bukkit.event.Event
 import org.bukkit.event.HandlerList
 

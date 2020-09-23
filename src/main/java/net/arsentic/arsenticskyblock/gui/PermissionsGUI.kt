@@ -1,6 +1,6 @@
 package net.arsentic.arsenticskyblock.gui
 
-import net.arsentic.arsenticskyblock.*
+import net.arsentic.arsenticskyblock.Permissions
 import net.arsentic.arsenticskyblock.Role
 import net.arsentic.arsenticskyblock.User
 import net.arsentic.arsenticskyblock.util.Utils
@@ -29,7 +29,7 @@ class PermissionsGUI : GUI, Listener {
             if (role != null) {
                 var i = 0
                 try {
-                    for (field in Permissions::class.java.getDeclaredFields()) {
+                    for (field in Permissions::class.java.declaredFields) {
                         val `object` = field[island.getPermissions(role)]
                         if (`object` is Boolean) {
                             if (`object`) {
@@ -76,7 +76,7 @@ class PermissionsGUI : GUI, Listener {
                     if (role.getRank() < u.role.getRank()) {
                         var i = 0
                         try {
-                            for (field in Permissions::class.java.getDeclaredFields()) {
+                            for (field in Permissions::class.java.declaredFields) {
                                 val `object` = field[island.getPermissions(role)]
                                 if (i == e.slot) {
                                     field.isAccessible = true

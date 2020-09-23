@@ -1,6 +1,6 @@
 package net.arsentic.arsenticskyblock.gui
 
-import net.arsentic.arsenticskyblock.IridiumSkyblock
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import net.arsentic.arsenticskyblock.User
 import net.arsentic.arsenticskyblock.util.Utils
 import org.bukkit.OfflinePlayer
@@ -67,9 +67,9 @@ class VisitGUI(page: Int) : GUI(getInventories().visitGUISize, getInventories().
                     e.whoClicked.sendMessage(color(getMessages().playersIslandIsPrivate.replace("%prefix%", getConfiguration().prefix)))
                 }
             } else if (e.slot == inventory.size - 7) {
-                if (IridiumSkyblock.Companion.visitGUI!!.containsKey(page - 1)) e.whoClicked.openInventory(IridiumSkyblock.Companion.visitGUI!!.get(page - 1).getInventory())
+                if (ArsenticSkyblock.Companion.visitGUI!!.containsKey(page - 1)) e.whoClicked.openInventory(ArsenticSkyblock.Companion.visitGUI!!.get(page - 1).getInventory())
             } else if (e.slot == inventory.size - 3) {
-                if (IridiumSkyblock.Companion.visitGUI!!.containsKey(page + 1)) e.whoClicked.openInventory(IridiumSkyblock.Companion.visitGUI!!.get(page + 1).getInventory())
+                if (ArsenticSkyblock.Companion.visitGUI!!.containsKey(page + 1)) e.whoClicked.openInventory(ArsenticSkyblock.Companion.visitGUI!!.get(page + 1).getInventory())
             }
         }
     }

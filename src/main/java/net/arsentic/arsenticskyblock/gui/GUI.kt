@@ -13,7 +13,7 @@ abstract class GUI {
     var islandID = 0
     var scheduler = 0
 
-    constructor() {}
+    constructor()
     constructor(island: Island?, size: Int, name: String?) {
         islandID = island.getId()
         inventory = Bukkit.createInventory(null, size, Utils.color(name))

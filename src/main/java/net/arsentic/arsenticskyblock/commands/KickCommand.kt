@@ -1,14 +1,14 @@
 package net.arsentic.arsenticskyblock.commands
 
-import net.arsentic.arsenticskyblock.IridiumSkyblock
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import org.bukkit.Bukkit
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
-class KickCommand(plugin: IridiumSkyblock): Command(plugin, listOf("kick"), "Kick a player from your island", "", true) {
+class KickCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("kick"), "Kick a player from your island", "", true) {
     override fun execute(sender: CommandSender, args: Array<String>) {
         if (args.size != 2) {
-            sender.sendMessage(_root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix).toString() + "/is kick <player>")
+            sender.sendMessage(_root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix).toString() + "/is kick <player>")
             return
         }
         val p = sender as Player
@@ -20,9 +20,9 @@ class KickCommand(plugin: IridiumSkyblock): Command(plugin, listOf("kick"), "Kic
                 if (u.role == _root_ide_package_.net.arsentic.arsenticskyblock.Role.Owner) {
                     sender.sendMessage(
                         _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().cantKickOwner.replace(
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().cantKickOwner.replace(
                                 "%prefix%",
-                                _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                                _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                             )
                         )
                     )
@@ -31,18 +31,18 @@ class KickCommand(plugin: IridiumSkyblock): Command(plugin, listOf("kick"), "Kic
                         user.island.removeUser(u)
                         if (player.player != null) player.player.sendMessage(
                             _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                                _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().youHaveBeenKicked.replace(
+                                _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().youHaveBeenKicked.replace(
                                     "%prefix%",
-                                    _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                                 )
                             )
                         )
                     } else {
                         sender.sendMessage(
                             _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                                _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().noPermission.replace(
+                                _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().noPermission.replace(
                                     "%prefix%",
-                                    _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                                 )
                             )
                         )
@@ -51,9 +51,9 @@ class KickCommand(plugin: IridiumSkyblock): Command(plugin, listOf("kick"), "Kic
             } else {
                 sender.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().notInYourIsland.replace(
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().notInYourIsland.replace(
                             "%prefix%",
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                         )
                     )
                 )
@@ -61,9 +61,9 @@ class KickCommand(plugin: IridiumSkyblock): Command(plugin, listOf("kick"), "Kic
         } else {
             sender.sendMessage(
                 _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                    _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().noIsland.replace(
+                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().noIsland.replace(
                         "%prefix%",
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                     )
                 )
             )
@@ -73,7 +73,7 @@ class KickCommand(plugin: IridiumSkyblock): Command(plugin, listOf("kick"), "Kic
     override fun admin(sender: CommandSender, args: Array<String>, island: Island?) {
         if (args.size != 4) {
             sender.sendMessage(
-                _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix).toString() + "/is admin <island> kick <player>"
+                _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix).toString() + "/is admin <island> kick <player>"
             )
             return
         }
@@ -84,9 +84,9 @@ class KickCommand(plugin: IridiumSkyblock): Command(plugin, listOf("kick"), "Kic
                 if (u.role == _root_ide_package_.net.arsentic.arsenticskyblock.Role.Owner) {
                     sender.sendMessage(
                         _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().cantKickOwner.replace(
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().cantKickOwner.replace(
                                 "%prefix%",
-                                _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                                _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                             )
                         )
                     )
@@ -94,9 +94,9 @@ class KickCommand(plugin: IridiumSkyblock): Command(plugin, listOf("kick"), "Kic
                     island.removeUser(u)
                     if (player.player != null) player.player.sendMessage(
                         _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().youHaveBeenKicked.replace(
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().youHaveBeenKicked.replace(
                                 "%prefix%",
-                                _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                                _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                             )
                         )
                     )
@@ -104,9 +104,9 @@ class KickCommand(plugin: IridiumSkyblock): Command(plugin, listOf("kick"), "Kic
             } else {
                 sender.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().notInYourIsland.replace(
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().notInYourIsland.replace(
                             "%prefix%",
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                         )
                     )
                 )
@@ -114,9 +114,9 @@ class KickCommand(plugin: IridiumSkyblock): Command(plugin, listOf("kick"), "Kic
         } else {
             sender.sendMessage(
                 _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                    _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().noIsland.replace(
+                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().noIsland.replace(
                         "%prefix%",
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                     )
                 )
             )

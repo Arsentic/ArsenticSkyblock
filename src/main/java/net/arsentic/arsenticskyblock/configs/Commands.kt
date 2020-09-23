@@ -1,9 +1,9 @@
 package net.arsentic.arsenticskyblock.configs
 
-import net.arsentic.arsenticskyblock.IridiumSkyblock
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import net.arsentic.arsenticskyblock.commands.*
 
-class Commands(plugin: IridiumSkyblock) {
+class Commands(plugin: ArsenticSkyblock) : Config(plugin) {
     var createCommand = CreateCommand(plugin)
     var homeCommand = HomeCommand(plugin)
     var deleteCommand = DeleteCommand(plugin)

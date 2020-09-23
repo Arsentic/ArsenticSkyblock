@@ -1,6 +1,6 @@
 package net.arsentic.arsenticskyblock.manager
 
-import net.arsentic.arsenticskyblock.IridiumSkyblock
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import net.arsentic.arsenticskyblock.island.VoidGenerator
 import net.arsentic.arsenticskyblock.library.Manager
 import org.bukkit.Bukkit
@@ -9,7 +9,7 @@ import org.bukkit.WorldCreator
 import org.bukkit.WorldType
 import org.bukkit.generator.ChunkGenerator
 
-class WorldManager(plugin: IridiumSkyblock) : Manager(plugin) {
+class WorldManager(plugin: ArsenticSkyblock) : Manager(plugin) {
     override fun reload() {
         createWorld("islands", World.Environment.NORMAL)
         createWorld("islands_nether", World.Environment.NETHER)

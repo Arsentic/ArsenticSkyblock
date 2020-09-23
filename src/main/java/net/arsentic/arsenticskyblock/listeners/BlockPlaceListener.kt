@@ -1,7 +1,7 @@
 package net.arsentic.arsenticskyblock.listeners
 
 import net.arsentic.arsenticskyblock.User
-import net.arsentic.arsenticskyblock.configs.Config
+import net.arsentic.arsenticskyblock.configs.Options
 import net.arsentic.arsenticskyblock.manager.IslandManager
 import net.arsentic.arsenticskyblock.mission.MissionType
 import net.arsentic.arsenticskyblock.util.Utils
@@ -33,7 +33,7 @@ class BlockPlaceListener : Listener {
             val user: User = User.Companion.getUser(player)
             val material = block.type
             val Material: Material = Material.matchMaterial(material)
-            val config: Config = getConfiguration()
+            val config: Options = getConfiguration()
             val max = config.limitedBlocks[Material]
             if (max != null) {
                 if (island.valuableBlocks.getOrDefault(Material.name(), 0) >= max) {

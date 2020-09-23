@@ -62,7 +62,7 @@ class MembersGUI(island: Island?) : GUI(island, getInventories().membersGUISize,
                                         u.role = Role.Companion.getViaRank(u.getRole().getRank() - 1)
                                         for (member in u.island.getMembers()) {
                                             val p: Player = Bukkit.getPlayer(User.Companion.getUser(member).name!!)
-                                            p?.sendMessage(color(getMessages().playerDemoted.replace("%rank%", u.getRole().toString()).replace("%player%", u.name).replace("%prefix%", getConfiguration().prefix)))
+                                            p.sendMessage(color(getMessages().playerDemoted.replace("%rank%", u.getRole().toString()).replace("%player%", u.name).replace("%prefix%", getConfiguration().prefix)))
                                         }
                                     }
                                 }
@@ -86,11 +86,11 @@ class MembersGUI(island: Island?) : GUI(island, getInventories().membersGUISize,
                                     } else {
                                         val event = IslandPromoteEvent(u.island, u, user, Role.Companion.getViaRank(u.getRole().getRank() + 1)!!)
                                         Bukkit.getPluginManager().callEvent(event)
-                                        if (!event.isCancelled()) {
+                                        if (!event.isCancelled) {
                                             u.role = Role.Companion.getViaRank(u.getRole().getRank() + 1)
                                             for (member in u.island.getMembers()) {
                                                 val p: Player = Bukkit.getPlayer(User.Companion.getUser(member).name!!)
-                                                p?.sendMessage(color(getMessages().playerPromoted.replace("%rank%", u.getRole().toString()).replace("%player%", u.name).replace("%prefix%", getConfiguration().prefix)))
+                                                p.sendMessage(color(getMessages().playerPromoted.replace("%rank%", u.getRole().toString()).replace("%player%", u.name).replace("%prefix%", getConfiguration().prefix)))
                                             }
                                         }
                                     }

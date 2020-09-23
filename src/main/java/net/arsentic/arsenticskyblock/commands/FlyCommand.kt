@@ -1,10 +1,10 @@
 package net.arsentic.arsenticskyblock.commands
 
-import net.arsentic.arsenticskyblock.IridiumSkyblock
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
-class FlyCommand(plugin: IridiumSkyblock): Command(plugin, listOf("fly", "flight"), "Toggle your ability to fly", "", true) {
+class FlyCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("fly", "flight"), "Toggle your ability to fly", "", true) {
     override fun execute(sender: CommandSender, args: Array<String>) {
         val p = sender as Player
         val user = _root_ide_package_.net.arsentic.arsenticskyblock.User.getUser(p)
@@ -16,9 +16,9 @@ class FlyCommand(plugin: IridiumSkyblock): Command(plugin, listOf("fly", "flight
                         p.isFlying = false
                         p.sendMessage(
                             _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                                _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().flightDisabled.replace(
+                                _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().flightDisabled.replace(
                                     "%prefix%",
-                                    _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                                 )
                             )
                         )
@@ -27,9 +27,9 @@ class FlyCommand(plugin: IridiumSkyblock): Command(plugin, listOf("fly", "flight
                         p.isFlying = true
                         p.sendMessage(
                             _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                                _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().flightEnabled.replace(
+                                _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().flightEnabled.replace(
                                     "%prefix%",
-                                    _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                                 )
                             )
                         )
@@ -38,9 +38,9 @@ class FlyCommand(plugin: IridiumSkyblock): Command(plugin, listOf("fly", "flight
                 } else {
                     p.sendMessage(
                         _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().flightBoosterNotActive.replace(
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().flightBoosterNotActive.replace(
                                 "%prefix%",
-                                _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                                _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                             )
                         )
                     )
@@ -48,9 +48,9 @@ class FlyCommand(plugin: IridiumSkyblock): Command(plugin, listOf("fly", "flight
             } else {
                 p.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().mustBeInIsland.replace(
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().mustBeInIsland.replace(
                             "%prefix%",
-                            _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                            _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                         )
                     )
                 )
@@ -58,9 +58,9 @@ class FlyCommand(plugin: IridiumSkyblock): Command(plugin, listOf("fly", "flight
         } else {
             p.sendMessage(
                 _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                    _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getMessages().noIsland.replace(
+                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().noIsland.replace(
                         "%prefix%",
-                        _root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getConfiguration().prefix
+                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
                     )
                 )
             )

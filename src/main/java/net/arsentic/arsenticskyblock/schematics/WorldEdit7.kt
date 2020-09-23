@@ -5,7 +5,7 @@ import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormats
 import com.sk89q.worldedit.function.operation.Operations
 import com.sk89q.worldedit.math.BlockVector3
 import com.sk89q.worldedit.session.ClipboardHolder
-import net.arsentic.arsenticskyblock.IridiumSkyblock
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import org.bukkit.Location
 import java.io.File
 import java.io.FileInputStream
@@ -31,7 +31,7 @@ class WorldEdit7 : WorldEdit {
             }
         } catch (e: Exception) {
             getInstance().getLogger().warning("Failed to paste schematic using worldedit")
-            IridiumSkyblock.Companion.schematic!!.paste(file, location, island)
+            ArsenticSkyblock.Companion.schematic!!.paste(file, location, island)
         }
     }
 }

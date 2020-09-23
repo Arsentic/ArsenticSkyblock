@@ -1,10 +1,11 @@
 package net.arsentic.arsenticskyblock.commands
 
-import net.arsentic.arsenticskyblock.IridiumSkyblock
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
-class LanguagesCommand(plugin: IridiumSkyblock): Command(plugin,
+class LanguagesCommand(plugin: ArsenticSkyblock) : Command(
+    plugin,
     listOf("language", "languages", "translate"),
     "Change the plugin language",
     "iridiumskyblock.language",
@@ -12,7 +13,7 @@ class LanguagesCommand(plugin: IridiumSkyblock): Command(plugin,
 ) {
     override fun execute(sender: CommandSender, args: Array<String>) {
         val p = sender as Player
-        p.openInventory(_root_ide_package_.net.arsentic.arsenticskyblock.IridiumSkyblock.getInstance().languagesGUI.pages.get(1).getInventory())
+        p.openInventory(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getInstance().languagesGUI.pages.get(1).getInventory())
     }
 
     override fun admin(sender: CommandSender, args: Array<String>, island: Island?) {

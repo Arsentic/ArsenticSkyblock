@@ -1,7 +1,7 @@
 package net.arsentic.arsenticskyblock.listeners
 
-import net.arsentic.arsenticskyblock.IridiumSkyblock
-import net.arsentic.arsenticskyblock.configs.Config
+import net.arsentic.arsenticskyblock.ArsenticSkyblock
+import net.arsentic.arsenticskyblock.configs.Options
 import net.arsentic.arsenticskyblock.manager.IslandManager
 import net.arsentic.arsenticskyblock.util.Utils
 import org.bukkit.Bukkit
@@ -29,15 +29,15 @@ class BlockFromToListener : Listener {
                 val toIsland: Island? = islandManager.getIslandViaLocation(toLocation)
                 if (island !== toIsland) event.isCancelled = true
             }
-            if (!IridiumSkyblock.Companion.getUpgrades()!!.oresUpgrade.enabled) return
+            if (!ArsenticSkyblock.Companion.getUpgrades()!!.oresUpgrade.enabled) return
             if (event.face == BlockFace.DOWN) return
             if (!isSurroundedByWater(toLocation)) return
             val oreLevel: Int = island.getOreLevel()
             val world = location.world ?: return
             val worldName = world.name
-            val config: Config = getConfiguration()
+            val config: Options = getConfiguration()
             val islandOreUpgrades: List<String>
-            islandOreUpgrades = if (worldName == config.worldName) IridiumSkyblock.Companion.oreUpgradeCache.get(oreLevel)!! else if (worldName == config.netherWorldName) IridiumSkyblock.Companion.netherOreUpgradeCache.get(oreLevel)!! else return
+            islandOreUpgrades = if (worldName == config.worldName) ArsenticSkyblock.Companion.oreUpgradeCache.get(oreLevel)!! else if (worldName == config.netherWorldName) ArsenticSkyblock.Companion.netherOreUpgradeCache.get(oreLevel)!! else return
             Bukkit.getScheduler().runTask(getInstance(), Runnable {
                 val toMaterial = toBlock.type
                 if (!(toMaterial == Material.COBBLESTONE || toMaterial == Material.STONE)) return@runTask
