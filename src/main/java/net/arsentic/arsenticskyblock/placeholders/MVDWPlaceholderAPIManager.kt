@@ -4,7 +4,6 @@ import be.maximvdw.placeholderapi.PlaceholderAPI
 import be.maximvdw.placeholderapi.PlaceholderReplaceEvent
 import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import net.arsentic.arsenticskyblock.User
-import net.arsentic.arsenticskyblock.util.Utils
 import org.bukkit.Bukkit
 import java.text.NumberFormat
 import java.util.*

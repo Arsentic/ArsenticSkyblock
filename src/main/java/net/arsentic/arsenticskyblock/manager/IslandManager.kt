@@ -1,6 +1,7 @@
 package net.arsentic.arsenticskyblock.manager
 
 import net.arsentic.arsenticskyblock.ArsenticSkyblock
+import net.arsentic.arsenticskyblock.Role
 import net.arsentic.arsenticskyblock.User
 import net.arsentic.arsenticskyblock.configs.Messages
 import net.arsentic.arsenticskyblock.configs.Options
@@ -19,6 +20,8 @@ class IslandManager(plugin: ArsenticSkyblock) : Manager(plugin) {
     val islands = mutableMapOf<Int, Island>()
     val users = mutableMapOf<String, User>()
     val islandCache = mutableMapOf<MutableList<Int>, MutableSet<Int>>()
+
+    private var nextId = 1
 
     override fun reload() {
 
@@ -39,14 +42,14 @@ class IslandManager(plugin: ArsenticSkyblock) : Manager(plugin) {
         }
 
         val calender = Calendar.getInstance()
-        calender.add(Calendar.SECOND, plugin.config.regenCooldown)
+        calender.add(Calendar.SECOND, config.getConfig(Options::class).regenCooldown)
         user.lastCreate = calender.time
 
-        // Define location :monkaW
+        // Define location :monkaW:
         val sizeUpgrade = config.getConfig(Upgrades::class).sizeUpgrade
 
-        val pos1 = sizeUpgrade.upgrades[1]?.size?.div(2.00)?.let { sizeUpgrade.upgrades[1]?.size?.div(2.00)?.let { it1 -> nextLoc().clone().subtract(it1, 0.0, it) } }
-        val pos2 = sizeUpgrade.upgrades[1]?.size?.div(2.00)?.let { sizeUpgrade.upgrades[1]?.size?.div(2.00)?.let { it1 -> nextLoc().clone().add(it1, 0.0, it) } }
+        val pos1 = sizeUpgrade.upgrades[1]?.size?.div(2.00)?.let { sizeUpgrade.upgrades[1]?.size?.div(2.00)?.let { it1 -> nextLoc().clone().subtract(it1, 0.0, it) } } ?: return
+        val pos2 = sizeUpgrade.upgrades[1]?.size?.div(2.00)?.let { sizeUpgrade.upgrades[1]?.size?.div(2.00)?.let { it1 -> nextLoc().clone().add(it1, 0.0, it) } } ?: return
         val center = nextLoc().clone().add(0.0, 100.0, 0.0)
         val home = nextLoc().clone()
         val netherHome = home.clone()
@@ -55,7 +58,11 @@ class IslandManager(plugin: ArsenticSkyblock) : Manager(plugin) {
             netherHome.world = plugin.getManager(IslandManager::class).netherWorld
         }
 
+        val island = Island(player, pos1, pos2, center, home, netherHome, nextId)
+        islands[nextId] = island
 
+        user.islandID = nextId
+        user.role = Role.Owner
     }
 
     fun getIslandFromId(id: Int): Island? {

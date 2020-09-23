@@ -2,7 +2,6 @@ package net.arsentic.arsenticskyblock.gui
 
 import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import net.arsentic.arsenticskyblock.Color
-import net.arsentic.arsenticskyblock.util.Utils
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.inventory.InventoryClickEvent

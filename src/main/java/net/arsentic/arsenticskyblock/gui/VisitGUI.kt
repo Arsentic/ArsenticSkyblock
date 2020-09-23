@@ -2,7 +2,6 @@ package net.arsentic.arsenticskyblock.gui
 
 import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import net.arsentic.arsenticskyblock.User
-import net.arsentic.arsenticskyblock.util.Utils
 import org.bukkit.OfflinePlayer
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler

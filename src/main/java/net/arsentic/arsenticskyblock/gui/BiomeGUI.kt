@@ -1,6 +1,5 @@
 package net.arsentic.arsenticskyblock.gui
 
-import net.arsentic.arsenticskyblock.util.Utils
 import org.apache.commons.lang.WordUtils
 import org.bukkit.block.Biome
 import org.bukkit.event.EventHandler

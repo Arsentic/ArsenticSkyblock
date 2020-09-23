@@ -4,7 +4,6 @@ import net.arsentic.arsenticskyblock.Role
 import net.arsentic.arsenticskyblock.User
 import net.arsentic.arsenticskyblock.api.IslandDemoteEvent
 import net.arsentic.arsenticskyblock.api.IslandPromoteEvent
-import net.arsentic.arsenticskyblock.util.Utils
 import org.bukkit.Bukkit
 import org.bukkit.OfflinePlayer
 import org.bukkit.entity.Player

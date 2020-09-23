@@ -3,7 +3,6 @@ package net.arsentic.arsenticskyblock.placeholders
 import me.clip.placeholderapi.expansion.PlaceholderExpansion
 import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import net.arsentic.arsenticskyblock.User
-import net.arsentic.arsenticskyblock.util.Utils
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import java.text.NumberFormat

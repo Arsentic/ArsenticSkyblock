@@ -2,7 +2,6 @@ package net.arsentic.arsenticskyblock.gui
 
 import net.arsentic.arsenticskyblock.configs.Shop.ShopItem
 import net.arsentic.arsenticskyblock.configs.Shop.ShopObject
-import net.arsentic.arsenticskyblock.util.Utils
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler

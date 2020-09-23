@@ -3,7 +3,6 @@ package net.arsentic.arsenticskyblock.listeners
 import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import net.arsentic.arsenticskyblock.configs.Options
 import net.arsentic.arsenticskyblock.manager.IslandManager
-import net.arsentic.arsenticskyblock.util.Utils
 import org.bukkit.Bukkit
 import org.bukkit.Location
 import org.bukkit.Material

@@ -2,7 +2,6 @@ package net.arsentic.arsenticskyblock.commands
 
 import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import net.arsentic.arsenticskyblock.island.Island
-import net.arsentic.arsenticskyblock.util.Utils
 import org.apache.commons.lang.StringUtils
 import org.bukkit.Bukkit
 import org.bukkit.command.CommandSender

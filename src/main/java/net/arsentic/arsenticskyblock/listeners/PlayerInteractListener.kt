@@ -2,7 +2,6 @@ package net.arsentic.arsenticskyblock.listeners
 
 import net.arsentic.arsenticskyblock.User
 import net.arsentic.arsenticskyblock.manager.IslandManager
-import net.arsentic.arsenticskyblock.util.Utils
 import org.bukkit.Material
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
