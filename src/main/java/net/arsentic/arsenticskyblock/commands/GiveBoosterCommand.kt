@@ -62,7 +62,7 @@ class GiveBoosterCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("giv
         }
     }
 
-    override fun admin(sender: CommandSender, args: Array<String>, island: Island?) {
+    override fun admin(sender: CommandSender, args: Array<String>, island: Island) {
         execute(sender, args)
     }
 

@@ -1,10 +1,10 @@
 package net.arsentic.arsenticskyblock.manager
 
 import net.arsentic.arsenticskyblock.ArsenticSkyblock
-import net.arsentic.arsenticskyblock.data.User
 import net.arsentic.arsenticskyblock.configs.Messages
 import net.arsentic.arsenticskyblock.configs.Options
 import net.arsentic.arsenticskyblock.configs.Upgrades
+import net.arsentic.arsenticskyblock.data.User
 import net.arsentic.arsenticskyblock.island.Island
 import net.arsentic.arsenticskyblock.library.Manager
 import net.arsentic.core.library.HexUtils.colorify
@@ -14,6 +14,8 @@ import org.bukkit.OfflinePlayer
 import org.bukkit.World
 import org.bukkit.entity.Player
 import java.util.*
+import java.util.stream.Collectors
+
 
 class IslandManager(plugin: ArsenticSkyblock) : Manager(plugin) {
 
@@ -71,10 +73,60 @@ class IslandManager(plugin: ArsenticSkyblock) : Manager(plugin) {
         return islands[id]
     }
 
+    fun isInIsland(island: Island, location: Location?): Boolean {
+        return if (location == null)
+            false
+        else
+            isInIsland(island, location.x, location.z)
+    }
+
+    fun isInIsland(island: Island?, x: Double, z: Double): Boolean {
+        if (island == null)
+            return false
+
+        return x >= island.pos1.x && x <= island.pos2.x && z >= island.pos1.z && z <= island.pos2.z
+    }
+
+    fun getIslandFromLocation(location: Location): Island? {
+        if (!(location.world ?: return null).name.toLowerCase().contains("islands", true))
+            return null
+
+        val chunk = location.chunk
+        val chunkKey = Collections.unmodifiableList(Arrays.asList(chunk.x, chunk.z))
+
+        val x = location.x
+        val z = location.z
+
+        val islandIds = islandCache.computeIfAbsent(chunkKey) { hash ->
+            islands
+                .values
+                .stream()
+                .filter { island -> isInIsland(island, x, z) }
+                .map { x -> x?.id }
+                .collect(Collectors.toSet())
+        }
+
+        for (id in islandIds) {
+            val island = islands[id] ?: continue
+            if (isInIsland(island, x, z)) return island
+        }
+
+        for (island in islands.values) {
+            if (!isInIsland(island ?: continue, x, z))
+                continue
+
+            islandIds.add(island.id)
+            return island
+        }
+
+        return null
+    }
+
     private fun nextLoc(): Location {
         return Location(normalWorld, 0.0, 0.0, 0.0)
     }
 
+    // User Methods
     fun getUser(player: String): User? {
         return users[player]
     }
@@ -84,5 +136,15 @@ class IslandManager(plugin: ArsenticSkyblock) : Manager(plugin) {
             users[player.uniqueId.toString()]
         else
             User(plugin as ArsenticSkyblock, player)
+    }
+
+    // Value Methods
+
+    fun addExtraValue(island: Island, amount: Double) {
+        island.extraValue += amount
+    }
+
+    fun removeExtraValue(island: Island, amount: Double) {
+        island.extraValue -= amount
     }
 }

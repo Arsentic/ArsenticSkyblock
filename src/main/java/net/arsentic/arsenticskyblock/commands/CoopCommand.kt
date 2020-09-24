@@ -65,7 +65,7 @@ class CoopCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("coop"), "C
         }
     }
 
-    override fun admin(sender: CommandSender, args: Array<String>, island: Island?) {
+    override fun admin(sender: CommandSender, args: Array<String>, island: Island) {
         val p = sender as Player
         if (island != null) {
             if (args.size != 4) {

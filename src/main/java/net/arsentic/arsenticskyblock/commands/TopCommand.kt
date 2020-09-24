@@ -10,7 +10,7 @@ class TopCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("top"), "Vie
         p.openInventory(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.topGUI.inventory)
     }
 
-    override fun admin(sender: CommandSender, args: Array<String>, island: Island?) {
+    override fun admin(sender: CommandSender, args: Array<String>, island: Island) {
         execute(sender, args)
     }
 

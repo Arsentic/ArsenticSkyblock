@@ -52,7 +52,7 @@ class SetNameCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("setname
         }
     }
 
-    override fun admin(sender: CommandSender, args: Array<String>, island: Island?) {
+    override fun admin(sender: CommandSender, args: Array<String>, island: Island) {
         val p = sender as Player
         if (args.size != 2) {
             sender.sendMessage(

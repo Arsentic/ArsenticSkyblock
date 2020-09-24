@@ -68,7 +68,7 @@ class FlyCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("fly", "flig
         }
     }
 
-    override fun admin(sender: CommandSender, args: Array<String>, island: Island?) {
+    override fun admin(sender: CommandSender, args: Array<String>, island: Island) {
         execute(sender, args)
     }
 

@@ -42,7 +42,7 @@ class MembersCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("members
         }
     }
 
-    override fun admin(sender: CommandSender, args: Array<String>, island: Island?) {
+    override fun admin(sender: CommandSender, args: Array<String>, island: Island) {
         val p = sender as Player
         if (island != null) {
             p.openInventory(island.getMembersGUI().getInventory())

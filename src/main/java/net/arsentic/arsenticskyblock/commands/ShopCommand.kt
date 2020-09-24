@@ -10,7 +10,7 @@ class ShopCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("shop"), "A
         p.openInventory(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getShopGUI().getInventory())
     }
 
-    override fun admin(sender: CommandSender, args: Array<String>, island: Island?) {
+    override fun admin(sender: CommandSender, args: Array<String>, island: Island) {
         execute(sender, args)
     }
 

@@ -12,7 +12,7 @@ class AboutCommand(plugin: ArsenticSkyblock) : Command(plugin, true, false, "", 
         sender.sendMessage(colorify("&8Coded by Arsentic LTD"))
     }
 
-    override fun admin(sender: CommandSender, args: Array<String>, island: Island?) {
+    override fun admin(sender: CommandSender, args: Array<String>, island: Island) {
         execute(sender, args)
     }
 

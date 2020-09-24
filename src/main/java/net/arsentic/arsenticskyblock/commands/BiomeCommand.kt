@@ -23,7 +23,7 @@ class BiomeCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("biome"), 
         }
     }
 
-    override fun admin(sender: CommandSender, args: Array<String>, island: Island?) {
+    override fun admin(sender: CommandSender, args: Array<String>, island: Island) {
         val p = sender as Player
         if (island != null) {
             p.openInventory(island.getBiomeGUI().pages.get(1).getInventory())

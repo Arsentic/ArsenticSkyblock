@@ -5,7 +5,7 @@ import net.arsentic.arsenticskyblock.data.User
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
-class BankCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("bank"), "Opens the bank GUI", "", true) {
+class BankCommand(plugin: ArsenticSkyblock) : Command(plugin, true, false, "Opens the bank GUI", "", listOf("bank")) {
     override fun execute(sender: CommandSender, args: Array<String>) {
         val p = sender as Player
         val user = User.getUser(p)
@@ -23,7 +23,7 @@ class BankCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("bank"), "O
         }
     }
 
-    override fun admin(sender: CommandSender, args: Array<String>, island: Island?) {
+    override fun admin(sender: CommandSender, args: Array<String>, island: Island) {
         val p = sender as Player
         if (island != null) {
             p.openInventory(island.getBankGUI().getInventory())

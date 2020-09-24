@@ -42,7 +42,7 @@ class PrivateCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("private
         }
     }
 
-    override fun admin(sender: CommandSender, args: Array<String>, island: Island?) {
+    override fun admin(sender: CommandSender, args: Array<String>, island: Island) {
         if (island != null) {
             island.setVisit(false)
             sender.sendMessage(

@@ -16,7 +16,7 @@ class LanguagesCommand(plugin: ArsenticSkyblock) : Command(
         p.openInventory(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getInstance().languagesGUI.pages.get(1).getInventory())
     }
 
-    override fun admin(sender: CommandSender, args: Array<String>, island: Island?) {
+    override fun admin(sender: CommandSender, args: Array<String>, island: Island) {
         execute(sender, args)
     }
 

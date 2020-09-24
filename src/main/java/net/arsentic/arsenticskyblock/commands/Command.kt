@@ -12,7 +12,7 @@ abstract class Command(var plugin: ArsenticSkyblock, var enabled: Boolean, val p
 
     abstract fun execute(sender: CommandSender, args: Array<String>)
 
-    abstract fun admin(sender: CommandSender, args: Array<String>, island: Island?)
+    abstract fun admin(sender: CommandSender, args: Array<String>, island: Island)
 
     abstract fun tabComplete(cs: CommandSender, cmd: Command, s: String, args: Array<String>): List<String>?
 

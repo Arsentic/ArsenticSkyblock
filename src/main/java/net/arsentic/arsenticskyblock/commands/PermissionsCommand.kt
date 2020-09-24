@@ -14,7 +14,7 @@ class PermissionsCommand(plugin: IridiumSkyblock) : Command(plugin, listOf("perm
         }
     }
 
-    override fun admin(sender: CommandSender, args: Array<String>, island: Island?) {
+    override fun admin(sender: CommandSender, args: Array<String>, island: Island) {
         val player = sender as Player
         if (island != null) {
             player.openInventory(island.getPermissionsGUI().getInventory())

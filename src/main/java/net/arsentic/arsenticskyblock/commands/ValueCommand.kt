@@ -39,7 +39,7 @@ class ValueCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("value"), 
         }
     }
 
-    override fun admin(sender: CommandSender, args: Array<String>, island: Island?) {
+    override fun admin(sender: CommandSender, args: Array<String>, island: Island) {
         execute(sender, args)
     }
 

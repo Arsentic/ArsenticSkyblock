@@ -27,7 +27,8 @@ class AdminCommand(plugin: ArsenticSkyblock) : Command(plugin, true, false, "Con
 
 
             val id = args[1].toInt()
-            island = plugin.getIslandManager().getIslandViaId(id)
+            island = plugin.getIslandManager().getIslandViaId(id)Fuck.
+
             if (island != null) {
                 for (command in _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getCommandManager().commands) {
                     if (command.getAliases().contains(args[2]) && command.isEnabled()) {

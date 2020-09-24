@@ -60,7 +60,7 @@ class RecalculateCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("rec
         }, 0, interval.toLong())
     }
 
-    override fun admin(sender: CommandSender, args: Array<String>, island: Island?) {
+    override fun admin(sender: CommandSender, args: Array<String>, island: Island) {
         execute(sender, args)
     }
 

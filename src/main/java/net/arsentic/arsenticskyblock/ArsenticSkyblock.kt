@@ -4,10 +4,7 @@ import com.comphenix.protocol.ProtocolLibrary
 import com.comphenix.protocol.ProtocolManager
 import net.arsentic.arsenticskyblock.hook.PlaceholderAPIHook
 import net.arsentic.arsenticskyblock.library.ArsenticPlugin
-import net.arsentic.arsenticskyblock.manager.ConfigManager
-import net.arsentic.arsenticskyblock.manager.HookManager
-import net.arsentic.arsenticskyblock.manager.IslandManager
-import net.arsentic.arsenticskyblock.manager.WorldManager
+import net.arsentic.arsenticskyblock.manager.*
 
 // Gonna be honest with you here alex, The code is a lot better than it was
 class ArsenticSkyblock : ArsenticPlugin() {
@@ -22,6 +19,8 @@ class ArsenticSkyblock : ArsenticPlugin() {
         this.getManager(HookManager::class)
         this.getManager(WorldManager::class)
         this.getManager(IslandManager::class)
+        this.getManager(SchematicManager::class)
+        this.getManager(MissionManager::class)
 
         if (PlaceholderAPIHook.enabled()) {
             // Register Placeholder Expansion

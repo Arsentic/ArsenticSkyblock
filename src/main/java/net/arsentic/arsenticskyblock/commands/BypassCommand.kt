@@ -5,7 +5,7 @@ import net.arsentic.arsenticskyblock.data.User
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
-class BypassCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("bypass"), "Bypass all island restrictions", "iridiumskyblock.bypass", true) {
+class BypassCommand(plugin: ArsenticSkyblock) : Command(plugin, true, false, "Bypass all island restrictions", "iridiumskyblock.bypass", listOf("bypass")) {
     override fun execute(sender: CommandSender, args: Array<String>) {
         val p = sender as Player
         val u = User.getUser(p)
@@ -31,7 +31,7 @@ class BypassCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("bypass")
         }
     }
 
-    override fun admin(sender: CommandSender, args: Array<String>, island: Island?) {
+    override fun admin(sender: CommandSender, args: Array<String>, island: Island) {
         execute(sender, args)
     }
 

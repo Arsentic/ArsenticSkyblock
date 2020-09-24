@@ -48,7 +48,7 @@ class BlockFromToListener : Listener {
                 val blockState = toBlock.state
                 blockState.update(true)
                 if (Utils.isBlockValuable(toBlock)) {
-                    val Material: Material = Material.matchMaterial(material)
+                    val material: Material = material.matchMaterial(material)
                     island.valuableBlocks.compute(Material.name()) { name, original ->
                         if (original == null) return@compute 1
                         original + 1
@@ -80,8 +80,8 @@ class BlockFromToListener : Listener {
         val x = location.blockX
         val y = location.blockY
         val z = location.blockZ
-        val coords = arrayOf(intArrayOf(x + 1, y, z), intArrayOf(x - 1, y, z), intArrayOf(x, y, z + 1), intArrayOf(x, y, z - 1), intArrayOf(x + 1, y + 1, z), intArrayOf(x - 1, y + 1, z), intArrayOf(x, y + 1, z + 1), intArrayOf(x, y + 1, z - 1), intArrayOf(x + 1, y - 1, z), intArrayOf(x - 1, y - 1, z), intArrayOf(x, y - 1, z + 1), intArrayOf(x, y - 1, z - 1))
-        for (coord in coords) {
+        val cords = arrayOf(intArrayOf(x + 1, y, z), intArrayOf(x - 1, y, z), intArrayOf(x, y, z + 1), intArrayOf(x, y, z - 1), intArrayOf(x + 1, y + 1, z), intArrayOf(x - 1, y + 1, z), intArrayOf(x, y + 1, z + 1), intArrayOf(x, y + 1, z - 1), intArrayOf(x + 1, y - 1, z), intArrayOf(x - 1, y - 1, z), intArrayOf(x, y - 1, z + 1), intArrayOf(x, y - 1, z - 1))
+        for (cord in coords) {
             val block = world.getBlockAt(coord[0], coord[1], coord[2])
             val material = block.type
             val name = material.name

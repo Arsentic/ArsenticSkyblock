@@ -53,7 +53,7 @@ class UnCoopCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("uncoop")
         }
     }
 
-    override fun admin(sender: CommandSender, args: Array<String>, island: Island?) {
+    override fun admin(sender: CommandSender, args: Array<String>, island: Island) {
         if (args.size != 4) {
             sender.sendMessage(
                 _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix).toString() + "/is admin <island> uncoop <player>"

@@ -81,7 +81,7 @@ class HelpCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("help"), "D
         p.player!!.spigot().sendMessage(*components)
     }
 
-    override fun admin(sender: CommandSender, args: Array<String>, island: Island?) {
+    override fun admin(sender: CommandSender, args: Array<String>, island: Island) {
         execute(sender, args)
     }
 

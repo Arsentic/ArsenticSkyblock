@@ -45,7 +45,7 @@ class WarpsCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("warps"), 
         }
     }
 
-    override fun admin(sender: CommandSender, args: Array<String>, island: Island?) {
+    override fun admin(sender: CommandSender, args: Array<String>, island: Island) {
         execute(sender, args)
     }
 

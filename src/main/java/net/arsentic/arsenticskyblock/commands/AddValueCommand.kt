@@ -10,6 +10,8 @@ import org.bukkit.OfflinePlayer
 import org.bukkit.command.CommandSender
 
 class AddValueCommand(plugin: ArsenticSkyblock) : Command(plugin, true, false, "Give an island extra value", "iridiumskyblock.addvalue", listOf("addvalue")) {
+    val islandManager = plugin.getManager(IslandManager::class)
+
     override fun execute(sender: CommandSender, args: Array<String>) {
         if (args.size != 3) {
             sender.sendMessage(colorify("${config.prefix} /is addvalue <player> <amount>"))
@@ -21,6 +23,7 @@ class AddValueCommand(plugin: ArsenticSkyblock) : Command(plugin, true, false, "
         if (player != null) {
 
             val island = plugin.getManager(IslandManager::class).getUser(player)?.island
+
 
             if (island != null) {
                 try {
@@ -42,7 +45,7 @@ class AddValueCommand(plugin: ArsenticSkyblock) : Command(plugin, true, false, "
         }
     }
 
-    override fun admin(sender: CommandSender, args: Array<String>, island: Island?) {
+    override fun admin(sender: CommandSender, args: Array<String>, island: Island) {
         execute(sender, args)
     }
 
