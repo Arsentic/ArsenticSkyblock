@@ -16,7 +16,7 @@ class MissionManager(plugin: ArsenticSkyblock, val island: Island) : Manager(plu
     private val missionClass = plugin.getManager(ConfigManager::class).getConfig(Missions::class)
     private var missions = mutableMapOf<String, Int>()
     private var missionLevels = mutableMapOf<String, Int>()
-
+    
     override fun reload() {
 
     }
