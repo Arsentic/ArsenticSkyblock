@@ -2,17 +2,19 @@ package net.arsentic.arsenticskyblock.commands
 
 import net.arsentic.arsenticskyblock.ArsenticSkyblock
 import net.arsentic.arsenticskyblock.data.User
+import net.arsentic.core.library.HexUtils.colorify
 import org.bukkit.Bukkit
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
-class BanCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("ban"), "Ban a player from visiting your island", "", true) {
+//listOf("ban"), "Ban a player from visiting your island", "", true
+class BanCommand(plugin: ArsenticSkyblock) : Command(plugin, true, false, "arsenticskyblock.ban", "Ban a player from visiting your island") {
     override fun execute(sender: CommandSender, args: Array<String>) {
         if (args.size != 2) {
-            sender.sendMessage(_root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix).toString() + "/is ban <player>")
-            sender.sendMessage("/is ban <player>")
+            sender.sendMessage(colorify(ArsenticSkyblock.getConfiguration().prefix) + "/is ban <player>")
             return
         }
+
         val p = sender as Player
         val user = User.getUser(p)
         if (user.island != null) {
@@ -21,42 +23,40 @@ class BanCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("ban"), "Ban
                 user.island.addBan(User.getUser(player))
                 sender.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().playerBanned.replace(
+                        ArsenticSkyblock.getMessages().playerBanned.replace(
                             "%player%",
                             player.name
-                        ).replace("%prefix%", _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix)
+                        ).replace("%prefix%", ArsenticSkyblock.getConfiguration().prefix)
                     )
                 )
                 if (player.player != null) {
                     if (user.island.isInIsland(player.player!!.location)) {
                         player.player.sendMessage(
                             _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                                _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().bannedFromIsland.replace(
+                                ArsenticSkyblock.getMessages().bannedFromIsland.replace(
                                     "%player%",
                                     player.name
-                                ).replace("%prefix%", _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix)
+                                ).replace("%prefix%", ArsenticSkyblock.getConfiguration().prefix)
                             )
                         )
                         user.island.spawnPlayer(player.player)
                     }
                 }
             }
-        } else {
-            sender.sendMessage(
-                _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().noIsland.replace(
-                        "%prefix%",
-                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
-                    )
+        } else sender.sendMessage(
+            _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
+                ArsenticSkyblock.getMessages().noIsland.replace(
+                    "%prefix%",
+                    ArsenticSkyblock.getConfiguration().prefix
                 )
             )
-        }
+        )
     }
 
     override fun admin(sender: CommandSender, args: Array<String>, island: Island) {
         if (args.size != 4) {
             sender.sendMessage(
-                _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(_root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix).toString() + "/is admin <island> ban <player>"
+                _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(ArsenticSkyblock.getConfiguration().prefix).toString() + "/is admin <island> ban <player>"
             )
             sender.sendMessage("/is admin <island> ban <player>")
             return
@@ -67,20 +67,20 @@ class BanCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("ban"), "Ban
                 island.addBan(User.getUser(player))
                 sender.sendMessage(
                     _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().playerBanned.replace(
+                        ArsenticSkyblock.getMessages().playerBanned.replace(
                             "%player%",
                             player.name
-                        ).replace("%prefix%", _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix)
+                        ).replace("%prefix%", ArsenticSkyblock.getConfiguration().prefix)
                     )
                 )
                 if (player.player != null) {
                     if (island.isInIsland(player.player!!.location)) {
                         player.player.sendMessage(
                             _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                                _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().bannedFromIsland.replace(
+                                ArsenticSkyblock.getMessages().bannedFromIsland.replace(
                                     "%player%",
                                     player.name
-                                ).replace("%prefix%", _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix)
+                                ).replace("%prefix%", ArsenticSkyblock.getConfiguration().prefix)
                             )
                         )
                         island.spawnPlayer(player.player)
@@ -90,9 +90,9 @@ class BanCommand(plugin: ArsenticSkyblock) : Command(plugin, listOf("ban"), "Ban
         } else {
             sender.sendMessage(
                 _root_ide_package_.net.arsentic.arsenticskyblock.util.Utils.color(
-                    _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getMessages().noIsland.replace(
+                    ArsenticSkyblock.getMessages().noIsland.replace(
                         "%prefix%",
-                        _root_ide_package_.net.arsentic.arsenticskyblock.ArsenticSkyblock.getConfiguration().prefix
+                        ArsenticSkyblock.getConfiguration().prefix
                     )
                 )
             )

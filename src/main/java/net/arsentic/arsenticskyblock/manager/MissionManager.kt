@@ -13,9 +13,9 @@ import org.bukkit.Bukkit
 
 
 class MissionManager(plugin: ArsenticSkyblock, val island: Island) : Manager(plugin) {
-    private val missionClass = plugin.getManager(ConfigManager::class).getConfig(Missions::class)
-    private var missions = mutableMapOf<String, Int>()
-    private var missionLevels = mutableMapOf<String, Int>()
+    private val missionClass = island.missionClass
+    private var missions = island.missions
+    private var missionLevels = island.missionLevels
     
     override fun reload() {
 
